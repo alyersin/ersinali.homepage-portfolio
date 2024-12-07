@@ -1,36 +1,34 @@
 "use client";
 import { Box, Flex, Text, Image } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const cards = [
   {
     id: 1,
-    title: "Card 1",
-    content: "This is the first card.",
-    image: "/assets/bg-1.jpg",
+    title: "CITY-CHASE",
+    image: "/assets/projects/city-chase.avif",
+    href: "https://city-chase.vercel.app/",
   },
   {
     id: 2,
-    title: "Card 2",
-    content: "This is the second card.",
-    image: "/assets/bg-2.jpg",
+    title: "URBAN-EDGE",
+    image: "/assets/projects/urban-edge.avif",
+    href: "https://urban-edge.vercel.app/",
   },
   {
     id: 3,
-    title: "Card 3",
-    content: "This is the third card.",
-    image: "/assets/bg-3.jpg",
+    title: "E-QUIZZ",
+    image: "/assets/projects/e-quizz.avif",
+    href: "https://e-quizz.vercel.app/",
   },
   {
     id: 4,
-    title: "Card 3",
-    content: "This is the third card.",
+    title: "Card 4",
     image: "/assets/bg-4.jpg",
   },
   {
     id: 5,
-    title: "Card 3",
-    content: "This is the third card.",
+    title: "Card 5",
     image: "/assets/bg-5.jpg",
   },
 ];
@@ -38,32 +36,53 @@ const cards = [
 const AccordionCards = () => {
   const [activeCard, setActiveCard] = useState(null);
 
-  const toggleCard = (id) => {
-    setActiveCard((prev) => (prev === id ? null : id));
+  const handleCardClick = (id, href) => {
+    if (activeCard === id) {
+      if (href) {
+        window.open(href, "_blank", "noopener,noreferrer");
+      }
+    } else {
+      setActiveCard(id);
+    }
   };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Escape") {
+      setActiveCard(null);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   return (
     <Flex
+      className="borderAll"
       direction="row"
       align="center"
       justify="center"
       wrap="nowrap"
-      gap={4}
+      gap={10}
       overflow="hidden"
     >
       {cards.map((card) => (
         <Box
+          className="borderAll"
           key={card.id}
-          onClick={() => toggleCard(card.id)}
+          onClick={() => handleCardClick(card.id, card.href)}
           transition="all 0.3s ease"
           cursor="pointer"
           borderRadius="md"
-          border="1px solid white"
           boxShadow="lg"
           overflow="hidden"
           backgroundColor="gray.800"
           color="white"
-          width={activeCard === card.id ? "50%" : "10%"} // Expands the active card
+          width={activeCard === card.id ? "50%" : "10%"}
           height="400px"
           display="flex"
           flexDirection="column"
@@ -71,22 +90,26 @@ const AccordionCards = () => {
           alignItems="center"
           draggable={false}
         >
-          <Image
-            src={card.image}
-            alt={card.title}
+          <Box
             width="100%"
             height="100%"
-            objectFit="cover"
-            draggable={false}
-          />
-          <Text fontSize="xl" fontWeight="bold" p={4}>
-            {card.title}
-          </Text>
-          {activeCard === card.id && (
-            <Text fontSize="md" p={4} textAlign="center">
-              {card.content}
+            display="flex"
+            flexDirection="column"
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <Image
+              src={card.image}
+              alt={card.title}
+              width="100%"
+              height="100%"
+              objectFit="cover"
+              draggable={false}
+            />
+            <Text fontSize="10px" fontWeight="bold" p={2}>
+              {card.title}
             </Text>
-          )}
+          </Box>
         </Box>
       ))}
     </Flex>

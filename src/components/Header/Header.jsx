@@ -1,15 +1,14 @@
 "use client";
-import { Box, Image } from "@chakra-ui/react";
-import Link from "next/link";
+import { Box, Image, Link, Text } from "@chakra-ui/react";
 import React from "react";
 
 export default function Header() {
   return (
     <Box
+      className="borderAll"
       display="flex"
       flexDirection="row"
       maxWidth="1280px"
-      border="1px solid white"
       mx="auto"
       alignItems="center"
       justifyContent="space-between"
@@ -27,8 +26,24 @@ export default function Header() {
           />
         </Box>
       </Link>
-
-      <Box></Box>
+      <Box className="borderAll" display="flex" flexDirection="row" gap={20}>
+        {" "}
+        <Text fontFamily="'Poppins', sans-serif" fontSize="lg" fontWeight="800">
+          <Link href="/" textDecoration="none">
+            About
+          </Link>
+        </Text>
+        <Text fontFamily="'Poppins', sans-serif" fontSize="lg" fontWeight="800">
+          <Link href="#projects" textDecoration="none">
+            Projects
+          </Link>
+        </Text>
+        <Text fontFamily="'Poppins', sans-serif" fontSize="lg" fontWeight="800">
+          <Link href="#contact" textDecoration="none">
+            Contact
+          </Link>
+        </Text>
+      </Box>
     </Box>
   );
 }

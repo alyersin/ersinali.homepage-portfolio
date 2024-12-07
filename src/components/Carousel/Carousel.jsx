@@ -11,7 +11,12 @@ export default function Carousel({ items = [] }) {
   const doubledItems = items.concat(items);
 
   return (
-    <Box overflow="hidden" whiteSpace="nowrap" position="relative">
+    <Box
+      className="borderAll"
+      overflow="hidden"
+      whiteSpace="nowrap"
+      position="relative"
+    >
       <Box
         display="inline-flex"
         animation={`${scroll} 30s linear infinite`}
@@ -25,7 +30,7 @@ export default function Carousel({ items = [] }) {
             <Image
               src={item.src}
               alt={item.alt}
-              boxSize="100px"
+              boxSize="90px"
               objectFit="contain"
               borderRadius="md"
               draggable="false"

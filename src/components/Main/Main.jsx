@@ -1,6 +1,7 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import AccordionCards from "../AccordionCards/AccordionCards";
 import Carousel from "../Carousel/Carousel";
+import Contact from "../Contact/Contact";
 
 const images = [
   { src: "/assets/html.png", alt: "html" },
@@ -20,6 +21,7 @@ const images = [
 export default function Main() {
   return (
     <Box
+      className="borderAll"
       bg="gray.900"
       maxWidth="1280px"
       minH="100vh"
@@ -29,15 +31,21 @@ export default function Main() {
       alignItems="center"
       justifyContent="center"
       textAlign="center"
-      px={{ base: 4, md: 8 }} // Responsive padding
-      gap={{ base: 8, md: 12 }} // Adjust gap between components for smaller screens
+      mx="auto"
+      my="auto"
+      px={{ base: 4, md: 8 }}
+      gap={{ base: 8, md: 12 }}
     >
-      <Box width="100%">
+      <Box id="projects" width="100%" padding="100px 0 100px 0">
         <AccordionCards />
       </Box>
 
-      <Box width="100%">
+      <Box width="100%" padding="0 0 100px 0">
         <Carousel items={images} />
+      </Box>
+
+      <Box id="contact" padding="0 0 100px 0">
+        <Contact />
       </Box>
     </Box>
   );
