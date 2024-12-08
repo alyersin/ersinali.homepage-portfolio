@@ -6,49 +6,67 @@ const cards = [
   {
     id: 1,
     title: "CITY-CHASE",
-    image: "/assets/projects/city-chase.avif",
-    href: "https://city-chase.vercel.app/",
+    frontImage: "/assets/projects/city-chase.avif",
+    backImage: "/assets/bg-3.jpg",
+    frontHref: "https://city-chase.vercel.app/",
+    backHref: "https://city-chase-info.com/",
   },
   {
     id: 2,
     title: "URBAN-EDGE",
-    image: "/assets/projects/urban-edge.avif",
-    href: "https://urban-edge-rho.vercel.app/",
+    frontImage: "/assets/projects/urban-edge.avif",
+    backImage: "/assets/bg-3.jpg",
+    frontHref: "https://urban-edge-rho.vercel.app/",
+    backHref: "https://urban-edge-info.com/",
   },
   {
     id: 3,
     title: "E-QUIZZ",
-    image: "/assets/projects/e-quizz.avif",
-    href: "https://interactive-quiz-app-rust.vercel.app/",
+    frontImage: "/assets/projects/e-quizz.avif",
+    backImage: "/assets/bg-3.jpg",
+    frontHref: "https://interactive-quiz-app-rust.vercel.app/",
+    backHref: "https://e-quizz-info.com/",
   },
   {
     id: 4,
-    title: "Card 4",
-    image: "/assets/bg-4.jpg",
+    title: "E-QUIZZ",
+    frontImage: "/assets/bg-4.jpg",
+    backImage: "/assets/bg-3.jpg",
+    frontHref: "https://interactive-quiz-app-rust.vercel.app/",
+    backHref: "https://e-quizz-info.com/",
   },
   {
     id: 5,
-    title: "Card 5",
-    image: "/assets/bg-5.jpg",
+    title: "E-QUIZZ",
+    frontImage: "/assets/bg-5.jpg",
+    backImage: "/assets/bg-3.jpg",
+    frontHref: "https://interactive-quiz-app-rust.vercel.app/",
+    backHref: "https://e-quizz-info.com/",
   },
 ];
 
-const AccordionCards = () => {
+export default function AccordionCards() {
   const [activeCard, setActiveCard] = useState(null);
+  const [flippedCards, setFlippedCards] = useState({});
 
-  const handleCardClick = (id, href) => {
+  const handleCardClick = (id) => {
     if (activeCard === id) {
-      if (href) {
-        window.open(href, "_blank", "noopener,noreferrer");
-      }
-    } else {
-      setActiveCard(id);
+      return;
     }
+    setActiveCard(id);
+    setFlippedCards((prev) => ({ ...prev, [id]: false }));
   };
 
   const handleKeyDown = (event) => {
     if (event.key === "Escape") {
       setActiveCard(null);
+      setFlippedCards({});
+    } else if (event.key === " " && activeCard !== null) {
+      event.preventDefault();
+      setFlippedCards((prev) => ({
+        ...prev,
+        [activeCard]: !prev[activeCard],
+      }));
     }
   };
 
@@ -58,7 +76,7 @@ const AccordionCards = () => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [activeCard]);
 
   return (
     <Flex
@@ -72,48 +90,72 @@ const AccordionCards = () => {
     >
       {cards.map((card) => (
         <Box
-          className="borderAll"
           key={card.id}
-          onClick={() => handleCardClick(card.id, card.href)}
-          transition="all 0.3s ease"
-          cursor="pointer"
-          borderRadius="md"
-          boxShadow="lg"
-          overflow="hidden"
-          backgroundColor="gray.800"
-          color="white"
+          onClick={() => handleCardClick(card.id)}
+          position="relative"
           width={activeCard === card.id ? "50%" : "10%"}
           height="400px"
-          display="flex"
-          flexDirection="column"
-          justifyContent="space-between"
-          alignItems="center"
-          draggable={false}
+          cursor="pointer"
+          sx={{
+            transform: flippedCards[card.id] ? "rotateY(180deg)" : "rotateY(0)",
+            transformStyle: "preserve-3d",
+            transition: "transform 1s, width 0.3s",
+          }}
         >
+          {/* Front Side */}
           <Box
+            position="absolute"
             width="100%"
             height="100%"
-            display="flex"
-            flexDirection="column"
-            justifyContent="space-between"
-            alignItems="center"
+            style={{
+              backfaceVisibility: "hidden",
+            }}
           >
             <Image
-              src={card.image}
+              src={card.frontImage}
               alt={card.title}
               width="100%"
               height="100%"
               objectFit="cover"
-              draggable={false}
             />
             <Text fontSize="10px" fontWeight="bold" p={2}>
               {card.title}
             </Text>
           </Box>
+
+          {/* Back Side */}
+          <Box
+            position="absolute"
+            width="100%"
+            height="100%"
+            style={{
+              backfaceVisibility: "hidden",
+              transform: "rotateY(180deg)",
+            }}
+          >
+            <Image
+              src={card.backImage}
+              alt={`${card.title} - Back`}
+              width="100%"
+              height="100%"
+              objectFit="cover"
+            />
+            <Text fontSize="10px" fontWeight="bold" p={2}>
+              Back of {card.title}
+            </Text>
+            {card.backHref && (
+              <a
+                href={card.backHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "cyan", textDecoration: "underline" }}
+              >
+                Visit Back Link
+              </a>
+            )}
+          </Box>
         </Box>
       ))}
     </Flex>
   );
-};
-
-export default AccordionCards;
+}
