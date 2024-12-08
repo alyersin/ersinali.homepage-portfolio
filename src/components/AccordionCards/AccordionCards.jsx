@@ -13,13 +13,13 @@ const cards = [
     id: 2,
     title: "URBAN-EDGE",
     image: "/assets/projects/urban-edge.avif",
-    href: "https://urban-edge.vercel.app/",
+    href: "https://urban-edge-rho.vercel.app/",
   },
   {
     id: 3,
     title: "E-QUIZZ",
     image: "/assets/projects/e-quizz.avif",
-    href: "https://e-quizz.vercel.app/",
+    href: "https://interactive-quiz-app-rust.vercel.app/",
   },
   {
     id: 4,

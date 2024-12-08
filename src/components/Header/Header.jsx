@@ -10,6 +10,7 @@ export default function Header() {
       flexDirection="row"
       maxWidth="1280px"
       mx="auto"
+      px={24}
       alignItems="center"
       justifyContent="space-between"
       padding={{ base: "0 20px", md: "0 80px" }}

@@ -2,7 +2,9 @@ import { useState } from "react";
 import {
   Box,
   Button,
+  Divider,
   FormControl,
+  Heading,
   Image,
   Input,
   Textarea,
@@ -13,6 +15,12 @@ export default function ContactForm() {
     name: "",
     email: "",
     message: "",
+  });
+
+  const [placeholders, setPlaceholders] = useState({
+    name: "Enter your name",
+    email: "Enter your email",
+    message: "Enter your message",
   });
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState("");
@@ -48,82 +56,139 @@ export default function ContactForm() {
     }
   };
 
+  const handleFocus = (field) => {
+    setPlaceholders((prev) => ({ ...prev, [field]: "" }));
+  };
+
+  const handleBlur = (field, defaultValue) => {
+    if (formData[field].trim() === "") {
+      setPlaceholders((prev) => ({ ...prev, [field]: defaultValue }));
+    }
+  };
+
   return (
     <Box
       className="borderAll"
+      // border="5px solid #149AD7"
       maxWidth="1280px"
       width="100%"
       mx="auto"
+      bgColor="black"
+      color="#149AD7"
       display="flex"
       flexDirection={{ base: "column", md: "row" }}
       alignItems="center"
-      gap={6}
-      p={8}
-      borderRadius="lg"
+      // borderRadius="5px"
       boxShadow="lg"
     >
-      <Image
-        src="/assets/bg-1.jpg"
+      {/* <Image
+        src="/assets/bg-6.jpg"
         alt="Logo"
+        borderRadius="5px"
         draggable={false}
         width="60%"
-        height={240}
+        height={260}
+        margin="auto"
         mx="auto"
-        mb={4}
-      />
-
+      /> */}
       <Box
         className="borderAll"
         width={{ base: "100%", md: "60%" }}
-        margin="auto"
-        height="240px"
+        margin="10px auto"
+        height="auto"
+        padding="10px 10px 0 10px"
       >
+        <Heading mb={24}>Contact Form</Heading>
+
         <form onSubmit={handleSubmit}>
-          <FormControl mb={4} isRequired>
+          <FormControl mb={10} isRequired className="borderAll">
             <Input
               type="text"
               name="name"
-              placeholder=" Name"
+              placeholder={placeholders.name}
+              onFocus={() => handleFocus("name")}
+              onBlur={() => handleBlur("name", "Enter your name")}
+              fontSize={15}
+              fontFamily="'Poppins', sans-serif"
               value={formData.name}
               onChange={handleChange}
-              backgroundColor="black"
-              color="white"
-              bg="gray.700"
+              bgColor="#141414"
+              sx={{
+                "::placeholder": {
+                  color: "#149AD7",
+                },
+              }}
               border="none"
+              width={440}
+              height={36}
+              padding={"0 10px 0 10px"}
             />
           </FormControl>
-          <FormControl mb={4} isRequired>
+          {/* <Divider my={4} border="1px solid #149AD7" /> */}
+          <FormControl mb={10} isRequired className="borderAll">
             <Input
               type="email"
               name="email"
-              placeholder=" Email"
+              placeholder={placeholders.email}
+              onFocus={() => handleFocus("email")}
+              onBlur={() => handleBlur("email", "Enter your email")}
+              fontSize={15}
+              fontFamily="'Poppins', sans-serif"
               value={formData.email}
               onChange={handleChange}
-              backgroundColor="black"
-              color="white"
-              bg="gray.700"
+              bgColor="#141414"
+              sx={{
+                "::placeholder": {
+                  color: "#149AD7",
+                },
+              }}
               border="none"
+              width="100%"
+              height={36}
+              padding={"0 10px 0 10px"}
             />
           </FormControl>
-          <FormControl mb={4} isRequired>
+          {/* <Divider my={4} border="1px solid #149AD7" /> */}
+
+          <FormControl mb={10} isRequired className="borderAll">
             <Textarea
               name="message"
-              placeholder=" Message"
+              placeholder={placeholders.message}
+              onFocus={() => handleFocus("message")}
+              onBlur={() => handleBlur("message", "Enter your message")}
+              fontSize={15}
+              fontFamily="'Poppins', sans-serif"
               value={formData.message}
               onChange={handleChange}
-              backgroundColor="black"
+              sx={{
+                "::placeholder": {
+                  color: "#149AD7",
+                },
+              }}
+              bgColor="#141414"
               color="white"
-              bg="gray.700"
               border="none"
+              width="100%"
+              height={90}
+              padding={"6px 10px 0 10px"}
             />
           </FormControl>
+          {/* <Divider my={4} border="1px solid #149AD7" /> */}
+
           <Button
             type="submit"
-            colorScheme="teal"
+            boxSize={34}
+            bgColor="#BD9864"
+            color="black"
+            colorScheme="#BD9864"
+            borderRadius="5px"
+            padding={18}
+            fontSize={14}
+            fontWeight={700}
             isLoading={loading}
-            width="full"
+            width="100%"
           >
-            Send Message
+            SEND MESSAGE
           </Button>
           {feedback && (
             <Box
