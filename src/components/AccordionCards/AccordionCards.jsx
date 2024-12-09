@@ -9,7 +9,7 @@ const cards = [
     frontImage: "/assets/projects/city-chase.avif",
     backImage: "/assets/bg-3.jpg",
     frontHref: "https://city-chase.vercel.app/",
-    backHref: "https://city-chase-info.com/",
+    backHref: "https://github.com/alyersin/City-Chase-NEXTJS-SQLite",
   },
   {
     id: 2,
@@ -32,16 +32,16 @@ const cards = [
     title: "E-QUIZZ",
     frontImage: "/assets/bg-4.jpg",
     backImage: "/assets/bg-3.jpg",
-    frontHref: "https://interactive-quiz-app-rust.vercel.app/",
-    backHref: "https://e-quizz-info.com/",
+    frontHref: "",
+    backHref: "",
   },
   {
     id: 5,
     title: "E-QUIZZ",
     frontImage: "/assets/bg-5.jpg",
     backImage: "/assets/bg-3.jpg",
-    frontHref: "https://interactive-quiz-app-rust.vercel.app/",
-    backHref: "https://e-quizz-info.com/",
+    frontHref: "",
+    backHref: "",
   },
 ];
 
@@ -49,10 +49,17 @@ export default function AccordionCards() {
   const [activeCard, setActiveCard] = useState(null);
   const [flippedCards, setFlippedCards] = useState({});
 
-  const handleCardClick = (id) => {
+  const handleCardClick = (id, frontHref, backHref) => {
     if (activeCard === id) {
+      // Navigate to the appropriate link if the card is active
+      if (flippedCards[id] && backHref) {
+        window.open(backHref, "_blank", "noopener,noreferrer");
+      } else if (frontHref) {
+        window.open(frontHref, "_blank", "noopener,noreferrer");
+      }
       return;
     }
+    // Activate the clicked card
     setActiveCard(id);
     setFlippedCards((prev) => ({ ...prev, [id]: false }));
   };
@@ -91,7 +98,9 @@ export default function AccordionCards() {
       {cards.map((card) => (
         <Box
           key={card.id}
-          onClick={() => handleCardClick(card.id)}
+          onClick={() =>
+            handleCardClick(card.id, card.frontHref, card.backHref)
+          }
           position="relative"
           width={activeCard === card.id ? "50%" : "10%"}
           height="400px"
