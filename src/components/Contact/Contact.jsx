@@ -177,10 +177,21 @@ export default function ContactForm() {
 
           <Button
             type="submit"
+            cursor="pointer"
             boxSize={34}
-            bgColor="#BD9864"
+            bgColor="#ffbd39"
             color="black"
-            colorScheme="#BD9864"
+            _focus={{
+              boxShadow: "none",
+            }}
+            _hover={{
+              boxShadow: "none",
+            }}
+            _active={{
+              boxShadow: "none",
+              outline: "none",
+            }}
+            border="none"
             borderRadius="5px"
             padding={18}
             fontSize={14}
@@ -190,6 +201,7 @@ export default function ContactForm() {
           >
             SEND MESSAGE
           </Button>
+
           {feedback && (
             <Box
               mt={4}

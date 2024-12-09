@@ -16,23 +16,24 @@ export default function Footer() {
         padding="16px"
         textAlign="center"
       >
-        <Text fontSize="xs" mb="8px">
-          &copy; {new Date().getFullYear()} Ersin
-        </Text>
-        <HStack justify="center" spacing="20px">
+        <HStack justify="center" spacing="20px" padding="0 0 80px 0">
           <Link href="https://github.com/alyersin" isexternal="true">
-            <Icon as={FaGithub} boxSize="6" _hover={{ color: "gray.400" }} />
+            <Icon as={FaGithub} boxSize="28" _hover={{ color: "gray.400" }} />
           </Link>
           <Link href="https://www.linkedin.com/in/ersin-ali-228301107/">
-            <Icon as={FaLinkedin} boxSize="6" _hover={{ color: "blue.400" }} />
+            <Icon as={FaLinkedin} boxSize="28" _hover={{ color: "blue.400" }} />
           </Link>
           <Link href="https://www.facebook.com/aly.ersin" isexternal="true">
-            <Icon as={FaFacebook} boxSize="6" _hover={{ color: "blue.600" }} />
+            <Icon as={FaFacebook} boxSize="28" _hover={{ color: "blue.600" }} />
           </Link>
           <Link href="https://x.com/shase6" isexternal="true">
-            <Icon as={FaTwitter} boxSize="6" _hover={{ color: "blue.500" }} />
+            <Icon as={FaTwitter} boxSize="28" _hover={{ color: "blue.500" }} />
           </Link>
         </HStack>
+
+        <Text fontSize=".7rem" mb="8px">
+          &copy; {new Date().getFullYear()} Ersin
+        </Text>
       </Box>
     </div>
   );

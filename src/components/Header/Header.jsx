@@ -10,7 +10,8 @@ export default function Header() {
       flexDirection="row"
       maxWidth="1280px"
       mx="auto"
-      px={24}
+      px={38}
+      py={20}
       alignItems="center"
       justifyContent="space-between"
       padding={{ base: "0 20px", md: "0 80px" }}
@@ -29,19 +30,58 @@ export default function Header() {
       </Link>
       <Box className="borderAll" display="flex" flexDirection="row" gap={20}>
         {" "}
-        <Text fontFamily="'Poppins', sans-serif" fontSize="lg" fontWeight="800">
+        <Text
+          fontFamily="'Poppins', sans-serif"
+          fontSize="0.8rem"
+          fontWeight="600"
+        >
           <Link href="/" textDecoration="none">
-            About
+            ABOUT
           </Link>
         </Text>
-        <Text fontFamily="'Poppins', sans-serif" fontSize="lg" fontWeight="800">
+        <Text
+          fontFamily="'Poppins', sans-serif"
+          fontSize="0.8rem"
+          fontWeight="600"
+        >
+          <Link href="#skills" textDecoration="none">
+            SKILLS
+          </Link>
+        </Text>
+        <Text
+          fontFamily="'Poppins', sans-serif"
+          fontSize="0.8rem"
+          fontWeight="600"
+        >
+          <Link href="/" textDecoration="none">
+            EDUCATION
+          </Link>
+        </Text>
+        <Text
+          fontFamily="'Poppins', sans-serif"
+          fontSize="0.8rem"
+          fontWeight="600"
+        >
           <Link href="#projects" textDecoration="none">
-            Projects
+            PROJECTS
           </Link>
         </Text>
-        <Text fontFamily="'Poppins', sans-serif" fontSize="lg" fontWeight="800">
+        <Text
+          fontFamily="'Poppins', sans-serif"
+          fontSize="0.8rem"
+          fontWeight="600"
+        >
+          <Link href="/" textDecoration="none">
+            BLOGS
+          </Link>
+        </Text>
+        <Text
+          fontFamily="'Poppins', sans-serif"
+          fontSize="0.8rem"
+          fontWeight="600"
+        >
           <Link href="#contact" textDecoration="none">
-            Contact
+            CONTACT
           </Link>
         </Text>
       </Box>

@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import { Box } from "@chakra-ui/react";
+
 import "./globals.css";
 
 export default function RootLayout({ children }) {
