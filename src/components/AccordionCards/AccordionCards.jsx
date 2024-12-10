@@ -4,6 +4,7 @@ import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import { useState, useEffect } from "react";
 import cards from "../../data/projects.json";
 import { keyframes } from "@emotion/react";
+import { useCallback } from "react";
 
 // SHAKE ANIMATION
 const shakeAnimation = keyframes`
@@ -67,18 +68,21 @@ export default function AccordionCards() {
   };
 
   // HANDLE ESCAPE KEY
-  const handleKeyDown = (event) => {
-    if (event.key === "Escape") {
-      setActiveCard(null);
-      setFlippedCards({});
-    } else if (event.key === " " && activeCard !== null) {
-      event.preventDefault();
-      setFlippedCards((prev) => ({
-        ...prev,
-        [activeCard]: !prev[activeCard],
-      }));
-    }
-  };
+  const handleKeyDown = useCallback(
+    (event) => {
+      if (event.key === "Escape") {
+        setActiveCard(null);
+        setFlippedCards({});
+      } else if (event.key === " " && activeCard !== null) {
+        event.preventDefault();
+        setFlippedCards((prev) => ({
+          ...prev,
+          [activeCard]: !prev[activeCard],
+        }));
+      }
+    },
+    [activeCard]
+  );
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
@@ -86,7 +90,7 @@ export default function AccordionCards() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [activeCard]);
+  }, [handleKeyDown]);
 
   const visibleCards = cards
     .slice(currentIndex, currentIndex + visibleCardsCount)

@@ -64,7 +64,7 @@ export default function Main() {
           <Text as="span" color="#E9008A" fontWeight="bold">
             ERSIN
           </Text>
-          , I'm a
+          , I&apos;m a
         </Text>
         <Text
           fontSize={{ base: "2xl", md: "3xl" }}
@@ -141,9 +141,9 @@ export default function Main() {
         </Flex>
       </Box>
 
-      <Heading id="skills" color="#149AD7" padding="0 0 40px 0">
+      {/* <Heading id="skills" color="#149AD7" padding="0 0 40px 0">
         My Skills
-      </Heading>
+      </Heading> */}
 
       <Carousel items={images} />
 
@@ -151,7 +151,7 @@ export default function Main() {
         id="projects"
         className="borderAll"
         color="#149AD7"
-        margin="40px 0 0 0"
+        margin="160px 0 0 0"
       >
         My Projects
       </Heading>
