@@ -1,43 +1,67 @@
 [
-    {
-      "id": 1,
-      "title": "CITY-CHASE",
-      "frontImage": "/assets/projects/city-chase.avif",
-      "backImage": "/assets/bg-3.jpg",
-      "frontHref": "https://city-chase.vercel.app/",
-      "backHref": "https://github.com/alyersin/City-Chase-NEXTJS-SQLite"
-    },
-    {
-      "id": 2,
-      "title": "URBAN-EDGE",
-      "frontImage": "/assets/projects/urban-edge.avif",
-      "backImage": "/assets/bg-3.jpg",
-      "frontHref": "https://urban-edge-rho.vercel.app/",
-      "backHref": "https://urban-edge-info.com/"
-    },
-    {
-      "id": 3,
-      "title": "E-QUIZZ",
-      "frontImage": "/assets/projects/e-quizz.avif",
-      "backImage": "/assets/bg-3.jpg",
-      "frontHref": "https://interactive-quiz-app-rust.vercel.app/",
-      "backHref": "https://e-quizz-info.com/"
-    },
-    {
-      "id": 4,
-      "title": "E-QUIZZ",
-      "frontImage": "/assets/bg-4.jpg",
-      "backImage": "/assets/bg-3.jpg",
-      "frontHref": "",
-      "backHref": ""
-    },
-    {
-      "id": 5,
-      "title": "E-QUIZZ",
-      "frontImage": "/assets/bg-5.jpg",
-      "backImage": "/assets/bg-3.jpg",
-      "frontHref": "",
-      "backHref": ""
-    }
-  ]
-  
+  {
+    "id": 1,
+    "title": "CITY-CHASE",
+    "frontImage": "/assets/projects/city-chase.avif",
+    "backImage": "/assets/projects/backImage-2.jpg",
+    "frontHref": "https://city-chase.vercel.app/",
+    "backHref": "https://github.com/alyersin/City-Chase-NEXTJS-SQLite"
+  },
+  {
+    "id": 2,
+    "title": "URBAN-EDGE",
+    "frontImage": "/assets/projects/urban-edge.avif",
+    "backImage": "/assets/projects/backImage-2.jpg",
+    "frontHref": "https://urban-edge-rho.vercel.app/",
+    "backHref": "https://github.com/alyersin/UrbanEdge-Online-Store-NEXTJS"
+  },
+  { 
+    "id": 3,
+    "title": "E-QUIZZ",
+    "frontImage": "/assets/projects/e-quizz.avif",
+    "backImage": "/assets/projects/backImage-2.jpg",
+    "frontHref": "https://interactive-quiz-app-rust.vercel.app/",
+    "backHref": "https://github.com/alyersin/InteractiveQuizApp"
+  },
+  {
+    "id": 4,
+    "title": "E-QUIZZ",
+    "frontImage": "/assets/projects/frontImage-1.jpg",
+    "backImage": "/assets/projects/backImage-5.jpg",
+    "frontHref": "",
+    "backHref": ""
+  },
+  {
+    "id": 5,
+    "title": "E-QUIZZ",
+    "frontImage": "/assets/projects/frontImage-1.jpg",
+    "backImage": "/assets/projects/backImage-5.jpg",
+    "frontHref": "",
+    "backHref": ""
+  },
+  {
+    "id": 6,
+    "title": "E-QUIZZ",
+    "frontImage": "/assets/projects/frontImage-1.jpg",
+    "backImage": "/assets/projects/backImage-5.jpg",
+
+    "frontHref": "",
+    "backHref": ""
+  },
+  {
+    "id": 7,
+    "title": "E-QUIZZ",
+    "frontImage": "/assets/projects/frontImage-1.jpg",
+    "backImage": "/assets/projects/backImage-5.jpg",
+    "frontHref": "",
+    "backHref": ""
+  },
+  {
+    "id": 8,
+    "title": "E-QUIZZ",
+    "frontImage": "/assets/projects/frontImage-1.jpg",
+    "backImage": "/assets/projects/backImage-5.jpg",
+    "frontHref": "",
+    "backHref": ""
+  }
+]

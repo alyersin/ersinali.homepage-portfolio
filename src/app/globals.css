@@ -44,3 +44,9 @@ a {
 .borderAll {
   /* border: 1px solid white; */
 }
+
+.header-fonts {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+}

@@ -48,19 +48,21 @@ export default function Main() {
       gap={{ base: 8, md: 12 }}
     >
       <Box
-        bg="linear-gradient(180deg, #1a202c, #1e1e2f)"
+        className="borderAll"
         color="white"
-        py={10}
-        px={{ base: 4, md: 8 }}
+        textAlign="left"
+        width="1280px"
+        padding="0 0 0 160px"
+        margin="100px 0 100px 0"
+        fontSize={34}
       >
-        {/* Text Content */}
         <Heading as="h1" size="2xl" mb={4}>
           Hello,
         </Heading>
         <Text fontSize={{ base: "2xl", md: "3xl" }} mb={2}>
           This is{" "}
-          <Text as="span" color="pink.400" fontWeight="bold">
-            Ersin
+          <Text as="span" color="#E9008A" fontWeight="bold">
+            ERSIN
           </Text>
           , I'm a
         </Text>
@@ -69,10 +71,14 @@ export default function Main() {
           fontWeight="bold"
           color="teal.400"
         >
-          Freelance Web Developer.
+          Freelance{" "}
+          <Text as="span" color="#16F5B5">
+            Web Developer
+          </Text>
+          .
         </Text>
 
-        {/* Social Icons */}
+        {/* SOCIAL ICONS */}
         <HStack spacing={4} mt={6}>
           <Link href="https://github.com" isExternal>
             <Icon
@@ -108,7 +114,6 @@ export default function Main() {
           </Link>
         </HStack>
 
-        {/* Buttons */}
         <Flex gap={4} mt={8}>
           <Button
             bg="black"
@@ -136,7 +141,18 @@ export default function Main() {
         </Flex>
       </Box>
 
-      <Heading id="projects" color="#149AD7" padding="100px 0 20px 0">
+      <Heading id="skills" color="#149AD7" padding="0 0 40px 0">
+        My Skills
+      </Heading>
+
+      <Carousel items={images} />
+
+      <Heading
+        id="projects"
+        className="borderAll"
+        color="#149AD7"
+        margin="40px 0 0 0"
+      >
         My Projects
       </Heading>
 
@@ -144,15 +160,7 @@ export default function Main() {
         <AccordionCards />
       </Box>
 
-      <Heading id="skills" color="#149AD7">
-        My Skills
-      </Heading>
-
-      <Box width="100%" padding="40px 0 100px 0">
-        <Carousel items={images} />
-      </Box>
-
-      <Box id="contact" padding="0 0 10px 0">
+      <Box id="contact" padding="150px 0 10px 0">
         <Contact />
       </Box>
     </Box>

@@ -1,6 +1,7 @@
 "use client";
 import { Box, Image, Link, Text } from "@chakra-ui/react";
 import React from "react";
+import "/src/app/globals.css";
 
 export default function Header() {
   return (
@@ -22,64 +23,40 @@ export default function Header() {
           <Image
             src="/assets/logo-1.png"
             alt="Logo"
-            width={230}
-            height={60}
+            width={220}
+            height={56}
             draggable={false}
           />
         </Box>
       </Link>
       <Box className="borderAll" display="flex" flexDirection="row" gap={20}>
         {" "}
-        <Text
-          fontFamily="'Poppins', sans-serif"
-          fontSize="0.8rem"
-          fontWeight="600"
-        >
+        <Text className="header-fonts">
           <Link href="/" textDecoration="none">
             ABOUT
           </Link>
         </Text>
-        <Text
-          fontFamily="'Poppins', sans-serif"
-          fontSize="0.8rem"
-          fontWeight="600"
-        >
+        <Text className="header-fonts">
           <Link href="#skills" textDecoration="none">
             SKILLS
           </Link>
         </Text>
-        <Text
-          fontFamily="'Poppins', sans-serif"
-          fontSize="0.8rem"
-          fontWeight="600"
-        >
+        <Text className="header-fonts">
           <Link href="/" textDecoration="none">
             EDUCATION
           </Link>
         </Text>
-        <Text
-          fontFamily="'Poppins', sans-serif"
-          fontSize="0.8rem"
-          fontWeight="600"
-        >
+        <Text className="header-fonts">
           <Link href="#projects" textDecoration="none">
             PROJECTS
           </Link>
         </Text>
-        <Text
-          fontFamily="'Poppins', sans-serif"
-          fontSize="0.8rem"
-          fontWeight="600"
-        >
+        <Text className="header-fonts">
           <Link href="/" textDecoration="none">
             BLOGS
           </Link>
         </Text>
-        <Text
-          fontFamily="'Poppins', sans-serif"
-          fontSize="0.8rem"
-          fontWeight="600"
-        >
+        <Text className="header-fonts">
           <Link href="#contact" textDecoration="none">
             CONTACT
           </Link>
