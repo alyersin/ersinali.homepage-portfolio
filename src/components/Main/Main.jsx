@@ -1,7 +1,7 @@
+"use client";
 import {
   Box,
   Heading,
-  Image,
   Text,
   HStack,
   Link,
@@ -9,10 +9,19 @@ import {
   Flex,
   Button,
 } from "@chakra-ui/react";
-import { FaGithub, FaLinkedin, FaFacebook, FaTwitter } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaFacebook,
+  FaTwitter,
+  FaDownload,
+} from "react-icons/fa";
 import AccordionCards from "../AccordionCards/AccordionCards";
+import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import Carousel from "../Carousel/Carousel";
 import Contact from "../Contact/Contact";
+import { keyframes } from "@emotion/react";
+import { useRef } from "react";
 
 const images = [
   { src: "/assets/html.png", alt: "html" },
@@ -29,32 +38,57 @@ const images = [
   { src: "/assets/csharp.png", alt: "csharp" },
 ];
 
+const shakeArrowDown = keyframes`
+  0% { transform: translateY(0); }
+  25% { transform: translateY(-5px); }
+  50% { transform: translateY(5px); }
+  75% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+`;
+const shakeArrowUp = keyframes`
+  0% { transform: translateY(0); }
+  25% { transform: translateY(5px); }
+  50% { transform: translateY(-5px); }
+  75% { transform: translateY(5px); }
+  100% { transform: translateY(0); }
+`;
+
 export default function Main() {
+  const secondPageRef = useRef(null);
+  const firstPageRef = useRef(null); // Reference to the first page
+
+  const handleScrollDown = () => {
+    secondPageRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleScrollUp = () => {
+    firstPageRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <Box
       className="borderAll"
       bg="gray.900"
       maxWidth="1280px"
-      minH="100vh"
       color="white"
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
       textAlign="center"
       mx="auto"
-      my="auto"
-      px={{ base: 4, md: 8 }}
-      gap={{ base: 8, md: 12 }}
     >
+      {/* FIRST PAGE */}
       <Box
+        ref={firstPageRef}
         className="borderAll"
-        color="white"
-        textAlign="left"
-        width="1280px"
-        padding="0 0 0 160px"
-        margin="100px 0 100px 0"
-        fontSize={34}
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        textAlign="center"
+        gap="6px"
+        fontSize="2.5rem"
+        width="100%"
+        height="100vh"
+        px={{ base: 4, md: 8 }}
+        py={12}
       >
         <Heading as="h1" size="2xl" mb={4}>
           Hello,
@@ -77,91 +111,139 @@ export default function Main() {
           </Text>
           .
         </Text>
-
         {/* SOCIAL ICONS */}
-        <HStack spacing={4} mt={6}>
+        <HStack spacing={24} mt={6} margin="34px 0 34px 0">
           <Link href="https://github.com" isExternal>
             <Icon
               as={FaGithub}
-              boxSize={6}
-              color="white"
+              boxSize={26}
+              color="rgba(196,65,176,1)"
               _hover={{ color: "teal.400" }}
             />
           </Link>
           <Link href="https://linkedin.com" isExternal>
             <Icon
               as={FaLinkedin}
-              boxSize={6}
-              color="white"
+              boxSize={26}
+              color="rgba(196,65,176,1)"
               _hover={{ color: "teal.400" }}
             />
           </Link>
           <Link href="https://facebook.com" isExternal>
             <Icon
               as={FaFacebook}
-              boxSize={6}
-              color="white"
+              boxSize={26}
+              color="rgba(196,65,176,1)"
               _hover={{ color: "pink.400" }}
             />
           </Link>
           <Link href="https://twitter.com" isExternal>
             <Icon
               as={FaTwitter}
-              boxSize={6}
-              color="white"
+              boxSize={26}
+              color="rgba(196,65,176,1)"
               _hover={{ color: "pink.400" }}
             />
           </Link>
         </HStack>
-
-        <Flex gap={4} mt={8}>
+        {/* BUTTONS */}
+        <Flex gap={8} mt={8}>
           <Button
             bg="black"
             color="white"
-            border="2px solid white"
+            border="1px solid rgba(196,65,176,1)"
+            borderRadius={20}
             _hover={{ bg: "pink.400", borderColor: "pink.400" }}
-            px={8}
+            px={12}
             py={6}
-            fontSize="lg"
+            fontSize="sm"
             leftIcon={<Icon as={FaLinkedin} />}
           >
-            Contact Me
+            CONTACT ME
           </Button>
           <Button
-            bg="pink.400"
+            bg="linear-gradient(90deg, rgba(131,58,180,1) 40%, rgba(196,65,176,1) 70%, rgba(252,69,73,1) 100%)"
             color="white"
+            border="none"
+            borderRadius={20}
             _hover={{ bg: "pink.500" }}
-            px={8}
+            px={12}
             py={6}
-            fontSize="lg"
-            leftIcon={<Icon as={FaGithub} />}
+            fontSize="sm"
+            leftIcon={<Icon as={FaDownload} />}
           >
-            Get Resume
+            GET RESUME
           </Button>
         </Flex>
+        {/* SCROLL DOWN */}
+        <Box
+          mt={12}
+          cursor="pointer"
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          margin="40px 0 140px 0"
+          onClick={handleScrollDown}
+        >
+          <Text fontSize="1.1rem" mb={2}>
+            Learn more
+          </Text>
+          <Icon
+            as={ChevronDownIcon}
+            w={34}
+            h={34}
+            color="white"
+            sx={{
+              animation: `${shakeArrowDown} 2s infinite`,
+            }}
+          />
+        </Box>
       </Box>
-
-      {/* <Heading id="skills" color="#149AD7" padding="0 0 40px 0">
-        My Skills
-      </Heading> */}
-
-      <Carousel items={images} />
-
-      <Heading
-        id="projects"
+      {/* SECOND PAGE */}
+      <Box
+        ref={secondPageRef}
         className="borderAll"
-        color="#149AD7"
-        margin="160px 0 0 0"
+        display="flex"
+        flexDirection="column"
+        gap={24}
+        w="100%"
+        py={12}
+        px={{ base: 4, md: 8 }}
+        bg="gray.800"
+        minH="100vh"
       >
-        My Projects
-      </Heading>
-
-      <Box width="100%" padding="40px 0 100px 0">
-        <AccordionCards />
-      </Box>
-
-      <Box id="contact" padding="150px 0 10px 0">
-        <Contact />
+        <Heading id="projects" color="#149AD7" mb={6} mt={22}>
+          My Projects
+        </Heading>
+        <Box width="100%" py={6}>
+          <AccordionCards />
+        </Box>
+        {/* SCROLL UP */}
+        <Box
+          mt={12}
+          cursor="pointer"
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          onClick={handleScrollUp}
+        >
+          <Text fontSize="1.1rem" mb={2}>
+            Back to Top
+          </Text>
+          <Icon
+            as={ChevronUpIcon}
+            transform="rotate(180deg)"
+            w={34}
+            h={34}
+            color="white"
+            sx={{
+              animation: `${shakeArrowUp} 2s infinite`,
+            }}
+          />
+        </Box>
+        <Box id="contact" py={12}>
+          <Contact />
+        </Box>
       </Box>
     </Box>
   );

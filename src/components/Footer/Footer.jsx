@@ -16,7 +16,12 @@ export default function Footer() {
         padding="16px"
         textAlign="center"
       >
-        <HStack justify="center" spacing="20px" padding="0 0 80px 0">
+        <HStack
+          className="borderAll"
+          justify="center"
+          spacing="20px"
+          padding="0 0 80px 0"
+        >
           <Link
             href="https://github.com/alyersin"
             isexternal="true"

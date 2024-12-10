@@ -6,6 +6,7 @@ import "/src/app/globals.css";
 export default function Header() {
   return (
     <Box
+      as="header"
       className="borderAll"
       display="flex"
       flexDirection="row"

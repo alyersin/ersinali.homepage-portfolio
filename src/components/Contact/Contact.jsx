@@ -2,6 +2,7 @@ import { useState } from "react";
 import {
   Box,
   Button,
+  Text,
   Divider,
   FormControl,
   Heading,
@@ -69,7 +70,6 @@ export default function ContactForm() {
   return (
     <Box
       className="borderAll"
-      // border="5px solid #149AD7"
       maxWidth="1280px"
       width="100%"
       mx="auto"
@@ -94,7 +94,7 @@ export default function ContactForm() {
       <Box
         className="borderAll"
         width={{ base: "100%", md: "60%" }}
-        margin="10px auto"
+        margin="auto"
         height="auto"
         padding="10px 10px 0 10px"
       >

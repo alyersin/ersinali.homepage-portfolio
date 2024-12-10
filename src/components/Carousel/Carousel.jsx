@@ -30,7 +30,7 @@ export default function Carousel({ items = [] }) {
             <Image
               src={item.src}
               alt={item.alt}
-              boxSize="90px"
+              boxSize="80px"
               objectFit="contain"
               borderRadius="md"
               draggable="false"
