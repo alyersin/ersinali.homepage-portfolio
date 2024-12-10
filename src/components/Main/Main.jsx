@@ -55,7 +55,7 @@ const shakeArrowUp = keyframes`
 
 export default function Main() {
   const secondPageRef = useRef(null);
-  const firstPageRef = useRef(null); // Reference to the first page
+  const firstPageRef = useRef(null);
 
   const handleScrollDown = () => {
     secondPageRef.current.scrollIntoView({ behavior: "smooth" });
