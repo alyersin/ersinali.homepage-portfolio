@@ -15,6 +15,7 @@ import {
   FaFacebook,
   FaTwitter,
   FaDownload,
+  FaEnvelope,
 } from "react-icons/fa";
 import AccordionCards from "../AccordionCards/AccordionCards";
 import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
@@ -148,34 +149,45 @@ export default function Main() {
         </HStack>
         {/* BUTTONS */}
         <Flex gap={8} mt={8}>
-          <Button
-            id="contact"
+          <Link
+            href="#contact"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            gap="8px"
             bg="black"
             color="white"
             border="1px solid rgba(196,65,176,1)"
             borderRadius={20}
             _hover={{ bg: "pink.400", borderColor: "pink.400" }}
-            px={12}
-            py={6}
-            fontSize="sm"
-            leftIcon={<Icon as={FaLinkedin} />}
+            px={20}
+            py={10}
+            fontSize="0.8rem"
           >
+            <Icon as={FaEnvelope} mr={2} />
             CONTACT ME
-          </Button>
-          <Button
+          </Link>
+          <Link
+            href="/resume.pdf"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            gap="8px"
             bg="linear-gradient(90deg, rgba(131,58,180,1) 40%, rgba(196,65,176,1) 70%, rgba(252,69,73,1) 100%)"
             color="white"
             border="none"
             borderRadius={20}
             _hover={{ bg: "pink.500" }}
-            px={12}
-            py={6}
-            fontSize="sm"
-            leftIcon={<Icon as={FaDownload} />}
+            px={20}
+            py={10}
+            fontSize="0.8rem"
+            download="Ersin_Resume.pdf"
           >
+            <Icon as={FaDownload} mr={2} />
             GET RESUME
-          </Button>
+          </Link>
         </Flex>
+
         {/* SCROLL DOWN */}
         <Box
           mt={12}

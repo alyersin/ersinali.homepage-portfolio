@@ -1,7 +1,15 @@
 "use client";
-import { Box, Image, Link, Text } from "@chakra-ui/react";
+import {
+  Box,
+  color,
+  Image,
+  Link,
+  Text,
+  textDecoration,
+} from "@chakra-ui/react";
 import React from "react";
 import "/src/app/globals.css";
+import { hoverAction } from "@use-gesture/react";
 
 export default function Header() {
   return (
