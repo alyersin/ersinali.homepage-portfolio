@@ -149,6 +149,7 @@ export default function Main() {
         {/* BUTTONS */}
         <Flex gap={8} mt={8}>
           <Button
+            id="contact"
             bg="black"
             color="white"
             border="1px solid rgba(196,65,176,1)"
@@ -182,7 +183,7 @@ export default function Main() {
           display="flex"
           flexDirection="column"
           alignItems="center"
-          margin="40px 0 140px 0"
+          margin="120px 0 140px 0"
           onClick={handleScrollDown}
         >
           <Text fontSize="1.1rem" mb={2}>
@@ -218,6 +219,11 @@ export default function Main() {
         <Box width="100%" py={6}>
           <AccordionCards />
         </Box>
+
+        <Box id="skills" margin="80px 0 80px 0">
+          <Carousel items={images} />
+        </Box>
+
         {/* SCROLL UP */}
         <Box
           mt={12}
@@ -241,7 +247,8 @@ export default function Main() {
             }}
           />
         </Box>
-        <Box id="contact" py={12}>
+
+        <Box id="contact" py={12} margin="100px 0 0 0">
           <Contact />
         </Box>
       </Box>

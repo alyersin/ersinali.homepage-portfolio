@@ -21,7 +21,7 @@ const arrowStyles = {
   color: "white",
   boxSize: "40px",
   border: "2px solid",
-  borderColor: "blue.500",
+  borderColor: "white",
   borderRadius: "md",
   boxShadow: "lg",
   _hover: {
