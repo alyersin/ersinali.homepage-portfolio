@@ -22,7 +22,7 @@ export default function Carousel({ items = [] }) {
         display="inline-flex"
         animation={`${scroll} 30s linear infinite`}
         style={{ width: "200%" }}
-        gap={2} // Chakra unit for spacing
+        gap={2}
         maxWidth="1280px"
       >
         {doubledItems.map((item, index) => (
@@ -30,9 +30,9 @@ export default function Carousel({ items = [] }) {
             <Image
               src={item.src}
               alt={item.alt}
-              width={{ base: "24", md: "32" }} // Use theme values for width
-              height={{ base: "16", md: "20" }} // Use theme values for height
-              objectFit="contain" // Crop images to fit within the box
+              width={{ base: "24", md: "32" }}
+              height={{ base: "16", md: "20" }}
+              objectFit="contain"
               borderRadius="md"
               draggable="false"
             />
