@@ -1,6 +1,8 @@
+"use client";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
-import { Box } from "@chakra-ui/react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
+import theme from "../theme.js";
 
 import "./globals.css";
 
@@ -15,13 +17,15 @@ export default function RootLayout({ children }) {
         }}
         suppressHydrationWarning
       >
-        <Box>
-          <Header />
-          <Box px={{ base: 4, md: 8 }} py={{ base: 4, md: 8 }}>
-            {children}
+        <ChakraProvider theme={theme}>
+          <Box>
+            <Header />
+            <Box px={{ base: 0, md: 0 }} py={{ base: 0, md: 0 }}>
+              {children}
+            </Box>
+            <Footer />
           </Box>
-          <Footer />
-        </Box>
+        </ChakraProvider>
       </body>
     </html>
   );

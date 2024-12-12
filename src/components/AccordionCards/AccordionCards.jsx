@@ -1,5 +1,13 @@
 "use client";
-import { Box, Flex, Text, Image, Tooltip, IconButton } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Text,
+  Image,
+  Tooltip,
+  IconButton,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import { useState, useEffect } from "react";
 import cards from "../../data/projects.json";
@@ -9,9 +17,9 @@ import { useCallback } from "react";
 // SHAKE ANIMATION
 const shakeAnimation = keyframes`
   0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
+  25% { transform: translateX(-5%); }
+  50% { transform: translateX(5%); }
+  75% { transform: translateX(-5%); }
   100% { transform: translateX(0); }
 `;
 
@@ -19,7 +27,7 @@ const shakeAnimation = keyframes`
 const arrowStyles = {
   bg: "black",
   color: "white",
-  boxSize: "40px",
+  boxSize: "10",
   border: "2px solid",
   borderColor: "white",
   borderRadius: "md",
@@ -39,7 +47,7 @@ export default function AccordionCards() {
   const [activeCard, setActiveCard] = useState(null);
   const [flippedCards, setFlippedCards] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
-  const visibleCardsCount = 7;
+  const visibleCardsCount = useBreakpointValue({ base: 3, md: 7 });
 
   // RIGHT ARROW HANDLER
   const handleNext = () => {
@@ -109,14 +117,14 @@ export default function AccordionCards() {
       align="center"
       justify="center"
       wrap="nowrap"
-      gap={6}
-      overflow="hidden"
+      mt={{ base: 14, md: "10" }}
+      gap={{ base: 2, md: 2 }}
     >
       {/* LEFT ARROW */}
       <IconButton
         icon={<ArrowBackIcon />}
         position="absolute"
-        left="10px"
+        left="2"
         top="50%"
         zIndex={10}
         onClick={handlePrev}
@@ -127,8 +135,8 @@ export default function AccordionCards() {
         <Tooltip
           key={`${card.id}-${activeCard}`}
           label="Click to interact / SPACE to flip"
-          fontWeight="700"
-          fontSize={12}
+          fontWeight="bold"
+          fontSize={{ base: 8, md: "xs" }}
           isOpen={activeCard === card.id}
           placement="top"
           hasArrow
@@ -144,8 +152,12 @@ export default function AccordionCards() {
               handleCardClick(card.id, card.frontHref, card.backHref)
             }
             position="relative"
-            width={activeCard === card.id ? "50%" : "12%"}
-            height="400px"
+            width={
+              activeCard === card.id
+                ? { base: "80%", md: "50%" }
+                : { base: "20%", md: "12%" }
+            }
+            height={{ base: "300px", md: "400px" }}
             cursor="pointer"
             sx={{
               transform: flippedCards[card.id]
@@ -172,7 +184,7 @@ export default function AccordionCards() {
                 objectFit="cover"
                 draggable={false}
               />
-              <Text fontSize="10px" fontWeight="bold" p={2}>
+              <Text fontSize="xs" fontWeight="bold" p={2}>
                 {card.title}
               </Text>
             </Box>
@@ -195,10 +207,10 @@ export default function AccordionCards() {
                 objectFit="cover"
                 draggable={false}
               />
-              <Text fontSize="10px" fontWeight="bold" p={2}>
+              <Text fontSize="xs" fontWeight="bold" p={2}>
                 Back of {card.title}
               </Text>
-              {card.backHref && (
+              {/* {card.backHref && (
                 <a
                   href={card.backHref}
                   target="_blank"
@@ -207,7 +219,7 @@ export default function AccordionCards() {
                 >
                   Visit Back Link
                 </a>
-              )}
+              )} */}
             </Box>
           </Box>
         </Tooltip>
@@ -216,7 +228,7 @@ export default function AccordionCards() {
       <IconButton
         icon={<ArrowForwardIcon />}
         position="absolute"
-        right="10px"
+        right="2"
         top="50%"
         zIndex={10}
         onClick={handleNext}

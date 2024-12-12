@@ -11,7 +11,6 @@ export default function Footer() {
         className="borderAll"
         as="footer"
         width="100%"
-        bg="gray.900"
         color="white"
         padding="16px"
         textAlign="center"
