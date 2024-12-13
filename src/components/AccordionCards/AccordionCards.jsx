@@ -118,6 +118,7 @@ export default function AccordionCards() {
       justify="center"
       wrap="nowrap"
       mt={{ base: 14, md: "10" }}
+      mb={{ base: 24, md: "24" }}
       gap={{ base: 2, md: 2 }}
     >
       {/* LEFT ARROW */}

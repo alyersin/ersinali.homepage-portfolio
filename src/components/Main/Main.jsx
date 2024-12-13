@@ -196,12 +196,14 @@ export default function Main() {
 
       {/* SECOND PAGE */}
       <Box
+        className="borderAll"
         ref={secondPageRef}
         py={12}
         px={{ base: 4, md: 8 }}
         minH="100vh"
         textAlign="center"
       >
+        {/* PROJECTS */}
         <Heading
           id="projects"
           fontSize={{ base: "2xl", md: "3xl" }}
@@ -215,12 +217,29 @@ export default function Main() {
           <AccordionCards />
         </Box>
 
-        <Box id="skills" mt={24}>
+        {/* SKILLS */}
+        <Heading
+          className="borderAll"
+          id="skills"
+          fontSize={{ base: "2xl", md: "3xl" }}
+          color="#149AD7"
+        >
+          My Skills
+        </Heading>
+        <Box mt={{ base: 14, md: 14 }}>
           <Carousel items={images} />
         </Box>
 
         {/* SCROLL UP */}
-        <Box mt={12} cursor="pointer" onClick={handleScrollUp}>
+        <Box
+          className="borderAll"
+          mt={24}
+          cursor="pointer"
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          onClick={handleScrollUp}
+        >
           <Text fontSize="lg" mb={2}>
             Back to Top
           </Text>

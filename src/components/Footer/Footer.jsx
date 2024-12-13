@@ -22,7 +22,7 @@ export default function Footer() {
         <Link href="https://github.com/alyersin" isExternal draggable={false}>
           <Icon
             as={FaGithub}
-            boxSize={{ base: "6", md: "8" }}
+            boxSize={{ base: "6", md: "6" }}
             _hover={{ color: "gray.400" }}
           />
         </Link>
@@ -33,7 +33,7 @@ export default function Footer() {
         >
           <Icon
             as={FaLinkedin}
-            boxSize={{ base: "6", md: "8" }}
+            boxSize={{ base: "6", md: "6" }}
             _hover={{ color: "blue.400" }}
           />
         </Link>
@@ -44,20 +44,24 @@ export default function Footer() {
         >
           <Icon
             as={FaFacebook}
-            boxSize={{ base: "6", md: "8" }}
+            boxSize={{ base: "6", md: "6" }}
             _hover={{ color: "blue.600" }}
           />
         </Link>
         <Link href="https://x.com/shase6" isExternal draggable={false}>
           <Icon
             as={FaTwitter}
-            boxSize={{ base: "6", md: "8" }}
+            boxSize={{ base: "6", md: "6" }}
             _hover={{ color: "blue.500" }}
           />
         </Link>
       </HStack>
 
-      <Text fontSize={{ base: "xs", md: "sm" }} mb="2">
+      <Text
+        fontSize={{ base: "xs", md: "sm" }}
+        mb="2"
+        py={{ base: "4", md: "4" }}
+      >
         {" "}
         &copy; {new Date().getFullYear()} Ersin
       </Text>

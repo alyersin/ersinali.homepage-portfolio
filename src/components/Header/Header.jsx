@@ -19,6 +19,14 @@ import "/src/app/globals.css";
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const handleClick = (e, target) => {
+    e.preventDefault();
+    onClose();
+    setTimeout(() => {
+      document.querySelector(target).scrollIntoView({ behavior: "smooth" });
+    }, 300);
+  };
+
   return (
     <Box
       as="header"
@@ -34,7 +42,6 @@ export default function Header() {
       color="white"
       draggable={false}
     >
-      {/* Logo */}
       <Link href="/" draggable={false}>
         <Box display="flex" alignItems="center">
           <Image
@@ -47,7 +54,6 @@ export default function Header() {
         </Box>
       </Link>
 
-      {/* Navigation Links */}
       <Box
         className="borderAll"
         display={{ base: "none", md: "flex" }}
@@ -86,7 +92,6 @@ export default function Header() {
         </Text>
       </Box>
 
-      {/* Hamburger Icon for Mobile */}
       <IconButton
         className="hamburger-icon"
         aria-label="Open menu"
@@ -96,23 +101,52 @@ export default function Header() {
         flexDirection="column"
       />
 
-      {/* Drawer for Mobile Navigation */}
+      {/* DRAWER */}
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-        <DrawerOverlay>
-          <DrawerContent>
+        <DrawerOverlay className="borderAllBlue">
+          <DrawerContent
+            className="borderAll"
+            bg="gray.800"
+            opacity="80%"
+            maxWidth={40}
+          >
             <DrawerCloseButton />
             <DrawerBody>
               <Box as="nav">
-                <Link href="/" color="teal.300" display="block" mb={2}>
+                <Link
+                  href="/"
+                  color="teal.300"
+                  display="block"
+                  mb={2}
+                  onClick={(e) => handleClick(e, "#about")}
+                >
                   About
                 </Link>
-                <Link href="#skills" color="teal.300" display="block" mb={2}>
+                <Link
+                  href="#skills"
+                  color="teal.300"
+                  display="block"
+                  mb={2}
+                  onClick={(e) => handleClick(e, "#skills")}
+                >
                   Skills
                 </Link>
-                <Link href="#projects" color="teal.300" display="block" mb={2}>
+                <Link
+                  href="#projects"
+                  color="teal.300"
+                  display="block"
+                  mb={2}
+                  onClick={(e) => handleClick(e, "#projects")}
+                >
                   Projects
                 </Link>
-                <Link href="#contact" color="teal.300" display="block" mb={2}>
+                <Link
+                  href="#contact"
+                  color="teal.300"
+                  display="block"
+                  mb={2}
+                  onClick={(e) => handleClick(e, "#contact")}
+                >
                   Contact
                 </Link>
               </Box>
