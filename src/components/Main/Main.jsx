@@ -25,7 +25,6 @@ import { keyframes } from "@emotion/react";
 import "/src/app/globals.css";
 
 import { useRef } from "react";
-import DraggableAccordion from "../DraggableAccordion/DraggableAccordion";
 
 const images = [
   { src: "/assets/html.png", alt: "html" },
