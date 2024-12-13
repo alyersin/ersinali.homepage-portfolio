@@ -107,8 +107,8 @@ export default function ContactForm() {
                   color: "primary.500",
                 },
               }}
-              border="1px solid"
-              borderColor="primary.500"
+              // border="1px solid"
+              // borderColor="primary.500"
               borderRadius="md"
               padding={4}
               width="100%"
@@ -168,7 +168,7 @@ export default function ContactForm() {
           <Button
             type="submit"
             isLoading={loading}
-            bgColor="secondary.400"
+            bgColor="#ffbd39"
             color="black"
             _hover={{ bgColor: "secondary.500" }}
             _active={{ bgColor: "secondary.600" }}

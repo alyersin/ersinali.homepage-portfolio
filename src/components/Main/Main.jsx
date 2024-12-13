@@ -25,6 +25,7 @@ import { keyframes } from "@emotion/react";
 import "/src/app/globals.css";
 
 import { useRef } from "react";
+import DraggableAccordion from "../DraggableAccordion/DraggableAccordion";
 
 const images = [
   { src: "/assets/html.png", alt: "html" },
@@ -157,7 +158,7 @@ export default function Main() {
           </Button>
           <Button
             as={Link}
-            href="/resume.pdf"
+            href="/CV/ERSIN_ALI_CV.pdf"
             bg="linear-gradient(90deg, rgba(131,58,180,1) 40%, rgba(196,65,176,1) 70%, rgba(252,69,73,1) 100%)"
             color="white"
             px={6}

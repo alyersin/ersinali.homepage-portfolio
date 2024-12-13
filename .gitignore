@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Ignore DraggableAccordion.jsx
+src/components/DraggableAccordion/DraggableAccordion.jsx
