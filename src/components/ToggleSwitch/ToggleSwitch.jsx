@@ -1,23 +1,32 @@
-// import { Stack, Text } from "@chakra-ui/react";
-// import { colorPalettes } from "compositions/lib/color-palettes";
-// import { Switch } from "@/components/ui/switch";
+import {
+  Switch,
+  FormControl,
+  FormLabel,
+  useColorMode,
+  Box,
+} from "@chakra-ui/react";
+import "/src/app/globals.css";
 
-// export default function ToggleSwitch() {
-//   return (
-//     <Stack gap="2" align="flex-start">
-//       {colorPalettes.map((colorPalette) => (
-//         <Stack
-//           align="center"
-//           key={colorPalette}
-//           direction="row"
-//           gap="10"
-//           px="4"
-//         >
-//           <Text minW="8ch">{colorPalette}</Text>
-//           <Switch colorPalette={colorPalette} />
-//           <Switch colorPalette={colorPalette} defaultChecked />
-//         </Stack>
-//       ))}
-//     </Stack>
-//   );
-// }
+export default function ToggleSwitch() {
+  const { colorMode, toggleColorMode } = useColorMode();
+
+  return (
+    <FormControl
+      className="borderAll"
+      display="flex"
+      alignItems="center"
+      width="auto"
+    >
+      <FormLabel htmlFor="theme-toggle" mb="0">
+        {colorMode === "light"}
+      </FormLabel>
+      <Switch
+        id="theme-toggle"
+        isChecked={colorMode === "dark"}
+        onChange={toggleColorMode}
+        colorScheme="yellow"
+        aria-label="Toggle theme"
+      />
+    </FormControl>
+  );
+}

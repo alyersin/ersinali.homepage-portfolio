@@ -47,6 +47,9 @@ a {
 .borderAllBlue {
   /* border: 2px solid blue; */
 }
+.borderAllRed {
+  /* border: 1px solid red; */
+}
 
 .header-fonts {
   font-family: "Poppins", sans-serif;

@@ -1,6 +1,4 @@
 "use client";
-import Footer from "@/components/Footer/Footer";
-import Header from "@/components/Header/Header";
 import { Box, ChakraProvider } from "@chakra-ui/react";
 import theme from "../theme.js";
 
@@ -19,11 +17,9 @@ export default function RootLayout({ children }) {
       >
         <ChakraProvider theme={theme}>
           <Box>
-            <Header />
             <Box px={{ base: 0, md: 0 }} py={{ base: 0, md: 0 }}>
               {children}
             </Box>
-            <Footer />
           </Box>
         </ChakraProvider>
       </body>

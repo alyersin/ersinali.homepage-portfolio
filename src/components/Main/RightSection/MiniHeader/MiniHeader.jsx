@@ -1,64 +1,31 @@
-"use client";
 import {
   Box,
-  Drawer,
-  DrawerOverlay,
-  DrawerContent,
-  Image,
   Link,
   Text,
   IconButton,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
   DrawerCloseButton,
   DrawerBody,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import React from "react";
 import { useDisclosure } from "@chakra-ui/react";
-import "/src/app/globals.css";
-import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import React from "react";
+import ToggleSwitch from "@/components/ToggleSwitch/ToggleSwitch";
 
-export default function Header() {
+export default function MiniHeader() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const handleClick = (e, target) => {
-    e.preventDefault();
-    onClose();
-    setTimeout(() => {
-      document.querySelector(target).scrollIntoView({ behavior: "smooth" });
-    }, 300);
-  };
-
   return (
-    <Box
-      as="header"
-      className="borderAll"
-      display="flex"
-      flexDirection="row"
-      maxWidth="1280px"
-      mx="auto"
-      px={4}
-      py={5}
-      alignItems="center"
-      justifyContent="space-between"
-      color="white"
-      draggable={false}
-    >
-      <Link href="/" draggable={false}>
-        <Box display="flex" alignItems="center">
-          <Image
-            src="/assets/logo-1.png"
-            alt="Logo"
-            width={{ base: "180px", md: "220px" }}
-            height={{ base: "46px", md: "56px" }}
-            draggable={false}
-          />
-        </Box>
-      </Link>
-
+    <Box className="borderAll">
       <Box
         className="borderAll"
         display={{ base: "none", md: "flex" }}
         flexDirection="row"
+        justifyContent="center"
+        alignItems="center"
+        height="24"
         gap={5}
       >
         <Text className="header-fonts">
@@ -72,18 +39,8 @@ export default function Header() {
           </Link>
         </Text>
         <Text className="header-fonts">
-          <Link href="/" textDecoration="none">
-            EDUCATION
-          </Link>
-        </Text>
-        <Text className="header-fonts">
           <Link href="#projects" textDecoration="none">
             PROJECTS
-          </Link>
-        </Text>
-        <Text className="header-fonts">
-          <Link href="/" textDecoration="none">
-            BLOGS
           </Link>
         </Text>
         <Text className="header-fonts">
@@ -91,6 +48,8 @@ export default function Header() {
             CONTACT
           </Link>
         </Text>
+
+        <ToggleSwitch />
       </Box>
 
       <IconButton
@@ -150,7 +109,6 @@ export default function Header() {
                 >
                   Contact
                 </Link>
-                {/* <ToggleSwitch /> */}
               </Box>
             </DrawerBody>
           </DrawerContent>

@@ -8,8 +8,25 @@ import {
   Input,
   Textarea,
 } from "@chakra-ui/react";
+import Carousel from "../../Carousel/Carousel";
+import ArrowScrollUp from "@/components/ArrowScroll/ArrowScrollUp";
 
-export default function ContactForm() {
+const images = [
+  { src: "/assets/html.png", alt: "html" },
+  { src: "/assets/css.png", alt: "css" },
+  { src: "/assets/js.png", alt: "js" },
+  { src: "/assets/reactjs.png", alt: "reactjs" },
+  { src: "/assets/nextjs.png", alt: "nextjs" },
+  { src: "/assets/chakraUI.png", alt: "chakra-ui" },
+  { src: "/assets/nodejs.png", alt: "nodejs" },
+  { src: "/assets/github.png", alt: "github" },
+  { src: "/assets/git.png", alt: "git" },
+  { src: "/assets/mysql.png", alt: "mysql" },
+  { src: "/assets/ai.png", alt: "ai" },
+  { src: "/assets/csharp.png", alt: "csharp" },
+];
+
+export default function ContactForm({ secondPageRef }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -21,6 +38,7 @@ export default function ContactForm() {
     email: "Enter your email",
     message: "Enter your message",
   });
+
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState("");
 
@@ -68,33 +86,55 @@ export default function ContactForm() {
   return (
     <Box
       className="borderAll"
+      height="100vh"
       maxWidth="1280px"
       width="100%"
       mx="auto"
-      bgColor="black"
+      bgColor="#13315c"
       color="primary.500"
       display="flex"
-      flexDirection={{ base: "column", md: "row" }}
+      flexDirection="column"
       alignItems="center"
       boxShadow="lg"
-      padding={{ base: "4", md: "8" }}
+      padding={{ base: "4", md: "0" }}
     >
+      <Box margin="auto" mt="40px">
+        <ArrowScrollUp firstPageRef={secondPageRef} />
+      </Box>
+
+      {/* SKILLS */}
+      <Box mt={10}>
+        <Heading
+          className="borderAll"
+          id="skills"
+          fontSize={{ base: "2xl", md: "3xl" }}
+          color="#149AD7"
+          mb={6}
+        >
+          My Skills
+        </Heading>
+        <Box>
+          <Carousel items={images} />
+        </Box>
+      </Box>
+
+      {/* CONTACT FORM */}
       <Box
         className="borderAll"
         width={{ base: "100%", md: "60%" }}
-        margin="auto"
+        marginTop="40px"
         padding={{ base: "4", md: "6" }}
       >
-        <Heading mb={8} fontSize={{ base: "lg", md: "2xl" }}>
+        <Heading mb={6} fontSize={{ base: "lg", md: "2xl" }} color="white">
           Contact Form
         </Heading>
-
         <form onSubmit={handleSubmit}>
           <FormControl mb={6} isRequired>
             <Input
               type="text"
               name="name"
               placeholder={placeholders.name}
+              aria-label="Enter your name"
               onFocus={() => handleFocus("name")}
               onBlur={() => handleBlur("name", "Enter your name")}
               fontSize={{ base: "sm", md: "md" }}
@@ -102,13 +142,8 @@ export default function ContactForm() {
               onChange={handleChange}
               bgColor="gray.800"
               color="white"
-              sx={{
-                "::placeholder": {
-                  color: "primary.500",
-                },
-              }}
-              // border="1px solid"
-              // borderColor="primary.500"
+              border="1px solid"
+              borderColor="primary.500"
               borderRadius="md"
               padding={4}
               width="100%"
@@ -120,6 +155,7 @@ export default function ContactForm() {
               type="email"
               name="email"
               placeholder={placeholders.email}
+              aria-label="Enter your email"
               onFocus={() => handleFocus("email")}
               onBlur={() => handleBlur("email", "Enter your email")}
               fontSize={{ base: "sm", md: "md" }}
@@ -127,11 +163,6 @@ export default function ContactForm() {
               onChange={handleChange}
               bgColor="gray.800"
               color="white"
-              sx={{
-                "::placeholder": {
-                  color: "primary.500",
-                },
-              }}
               border="1px solid"
               borderColor="primary.500"
               borderRadius="md"
@@ -144,6 +175,7 @@ export default function ContactForm() {
             <Textarea
               name="message"
               placeholder={placeholders.message}
+              aria-label="Enter your message"
               onFocus={() => handleFocus("message")}
               onBlur={() => handleBlur("message", "Enter your message")}
               fontSize={{ base: "sm", md: "md" }}
@@ -151,11 +183,6 @@ export default function ContactForm() {
               onChange={handleChange}
               bgColor="gray.800"
               color="white"
-              sx={{
-                "::placeholder": {
-                  color: "primary.500",
-                },
-              }}
               border="1px solid"
               borderColor="primary.500"
               borderRadius="md"
@@ -170,8 +197,8 @@ export default function ContactForm() {
             isLoading={loading}
             bgColor="#ffbd39"
             color="black"
-            _hover={{ bgColor: "secondary.500" }}
-            _active={{ bgColor: "secondary.600" }}
+            _hover={{ bgColor: "#ffdd5e" }}
+            _active={{ bgColor: "#ffbd39" }}
             padding={6}
             width="100%"
             fontSize={{ base: "sm", md: "md" }}
