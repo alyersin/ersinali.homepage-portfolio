@@ -15,6 +15,7 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import React from "react";
 import { useDisclosure } from "@chakra-ui/react";
 import "/src/app/globals.css";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -149,6 +150,7 @@ export default function Header() {
                 >
                   Contact
                 </Link>
+                {/* <ToggleSwitch /> */}
               </Box>
             </DrawerBody>
           </DrawerContent>

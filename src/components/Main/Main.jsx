@@ -226,14 +226,14 @@ export default function Main() {
         >
           My Skills
         </Heading>
-        <Box mt={{ base: 14, md: 14 }}>
+        <Box mt={{ base: 6, md: 14 }}>
           <Carousel items={images} />
         </Box>
 
         {/* SCROLL UP */}
         <Box
           className="borderAll"
-          mt={24}
+          mt={20}
           cursor="pointer"
           display="flex"
           flexDirection="column"

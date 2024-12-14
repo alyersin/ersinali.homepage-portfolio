@@ -54,8 +54,8 @@ export default function AccordionCards() {
   const containerRef = useRef(null);
 
   const tooltipText = isMobile
-    ? "Double tap to flip"
-    : "Click to interact / SPACE to flip";
+    ? "Single tap to interact / Double tap to flip"
+    : "Click interact / SPACE to flip";
 
   // RIGHT ARROW HANDLER
   const handleNext = () => {
@@ -119,7 +119,7 @@ export default function AccordionCards() {
     [activeCard, isMobile]
   );
 
-  // HANDLE CLICK OUTSIDE FOR MOBILE
+  // HANDLE CLICK OUTSIDE FOR MOBILE / RESET CARDS
   const handleClickOutside = useCallback(
     (event) => {
       if (
@@ -258,7 +258,7 @@ export default function AccordionCards() {
                 draggable={false}
               />
               <Text fontSize="xs" fontWeight="bold" p={2}>
-                Back of {card.title}
+                SOURCE CODE
               </Text>
             </Box>
           </Box>
