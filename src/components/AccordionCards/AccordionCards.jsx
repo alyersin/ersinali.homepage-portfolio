@@ -9,7 +9,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { keyframes } from "@emotion/react";
 import cards from "../../data/projects.json";
 import { useCallback } from "react";
@@ -51,6 +51,7 @@ export default function AccordionCards() {
   const [tapTimeout, setTapTimeout] = useState(null);
   const visibleCardsCount = useBreakpointValue({ base: 3, md: 7 });
   const isMobile = useBreakpointValue({ base: true, md: false });
+  const containerRef = useRef(null);
 
   const tooltipText = isMobile
     ? "Double tap to flip"
@@ -73,14 +74,14 @@ export default function AccordionCards() {
     const now = Date.now();
 
     if (now - lastTap < 300 && activeCard === id) {
-      //DOUBLE TAP CODE
+      // DOUBLE TAP CODE
       clearTimeout(tapTimeout);
       setFlippedCards((prev) => ({
         ...prev,
         [id]: !prev[id],
       }));
     } else {
-      //SINGLE TAP CODE
+      // SINGLE TAP CODE
       setLastTap(now);
       setTapTimeout(
         setTimeout(() => {
@@ -118,17 +119,36 @@ export default function AccordionCards() {
     [activeCard, isMobile]
   );
 
+  // HANDLE CLICK OUTSIDE FOR MOBILE
+  const handleClickOutside = useCallback(
+    (event) => {
+      if (
+        isMobile &&
+        containerRef.current &&
+        !containerRef.current.contains(event.target)
+      ) {
+        setActiveCard(null);
+        setFlippedCards({});
+      }
+    },
+    [isMobile]
+  );
+
   useEffect(() => {
     if (!isMobile) {
       window.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.addEventListener("click", handleClickOutside);
     }
 
     return () => {
       if (!isMobile) {
         window.removeEventListener("keydown", handleKeyDown);
+      } else {
+        document.removeEventListener("click", handleClickOutside);
       }
     };
-  }, [handleKeyDown, isMobile]);
+  }, [handleKeyDown, handleClickOutside, isMobile]);
 
   const visibleCards = cards
     .slice(currentIndex, currentIndex + visibleCardsCount)
@@ -141,6 +161,7 @@ export default function AccordionCards() {
 
   return (
     <Flex
+      ref={containerRef}
       position="relative"
       className="borderAll"
       direction="row"
