@@ -10,8 +10,8 @@ import {
 } from "@chakra-ui/react";
 import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import { useState, useEffect } from "react";
-import cards from "../../data/projects.json";
 import { keyframes } from "@emotion/react";
+import cards from "../../data/projects.json";
 import { useCallback } from "react";
 
 // SHAKE ANIMATION
@@ -47,7 +47,14 @@ export default function AccordionCards() {
   const [activeCard, setActiveCard] = useState(null);
   const [flippedCards, setFlippedCards] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [lastTap, setLastTap] = useState(0);
+  const [tapTimeout, setTapTimeout] = useState(null);
   const visibleCardsCount = useBreakpointValue({ base: 3, md: 7 });
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
+  const tooltipText = isMobile
+    ? "Double tap to flip"
+    : "Click to interact / SPACE to flip";
 
   // RIGHT ARROW HANDLER
   const handleNext = () => {
@@ -61,44 +68,67 @@ export default function AccordionCards() {
     );
   };
 
-  // HANDLE CARD CLICK
-  const handleCardClick = (id, frontHref, backHref) => {
-    if (activeCard === id) {
-      if (flippedCards[id] && backHref) {
-        window.open(backHref, "_blank", "noopener,noreferrer");
-      } else if (frontHref) {
-        window.open(frontHref, "_blank", "noopener,noreferrer");
-      }
-      return;
+  // HANDLE CARD TAP
+  const handleTap = (id, frontHref, backHref) => {
+    const now = Date.now();
+
+    if (now - lastTap < 300 && activeCard === id) {
+      //DOUBLE TAP CODE
+      clearTimeout(tapTimeout);
+      setFlippedCards((prev) => ({
+        ...prev,
+        [id]: !prev[id],
+      }));
+    } else {
+      //SINGLE TAP CODE
+      setLastTap(now);
+      setTapTimeout(
+        setTimeout(() => {
+          if (activeCard === id) {
+            if (flippedCards[id] && backHref) {
+              window.open(backHref, "_blank", "noopener,noreferrer");
+            } else if (!flippedCards[id] && frontHref) {
+              window.open(frontHref, "_blank", "noopener,noreferrer");
+            }
+          } else {
+            setActiveCard(id);
+            setFlippedCards((prev) => ({ ...prev, [id]: false }));
+          }
+        }, 300)
+      );
     }
-    setActiveCard(id);
-    setFlippedCards((prev) => ({ ...prev, [id]: false }));
   };
 
-  // HANDLE ESCAPE KEY
+  // HANDLE SPACE KEY TO FLIP (DESKTOP ONLY)
   const handleKeyDown = useCallback(
     (event) => {
-      if (event.key === "Escape") {
-        setActiveCard(null);
-        setFlippedCards({});
-      } else if (event.key === " " && activeCard !== null) {
-        event.preventDefault();
-        setFlippedCards((prev) => ({
-          ...prev,
-          [activeCard]: !prev[activeCard],
-        }));
+      if (!isMobile) {
+        if (event.key === "Escape") {
+          setActiveCard(null);
+          setFlippedCards({});
+        } else if (event.key === " " && activeCard !== null) {
+          event.preventDefault();
+          setFlippedCards((prev) => ({
+            ...prev,
+            [activeCard]: !prev[activeCard],
+          }));
+        }
       }
     },
-    [activeCard]
+    [activeCard, isMobile]
   );
 
   useEffect(() => {
-    window.addEventListener("keydown", handleKeyDown);
+    if (!isMobile) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
 
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
+      if (!isMobile) {
+        window.removeEventListener("keydown", handleKeyDown);
+      }
     };
-  }, [handleKeyDown]);
+  }, [handleKeyDown, isMobile]);
 
   const visibleCards = cards
     .slice(currentIndex, currentIndex + visibleCardsCount)
@@ -132,10 +162,10 @@ export default function AccordionCards() {
         aria-label="Previous Slide"
         {...arrowStyles}
       />
-      {visibleCards.map((card, index) => (
+      {visibleCards.map((card) => (
         <Tooltip
           key={`${card.id}-${activeCard}`}
-          label="Click to interact / SPACE to flip"
+          label={tooltipText}
           fontWeight="bold"
           fontSize={{ base: 8, md: "xs" }}
           isOpen={activeCard === card.id}
@@ -149,9 +179,7 @@ export default function AccordionCards() {
           }}
         >
           <Box
-            onClick={() =>
-              handleCardClick(card.id, card.frontHref, card.backHref)
-            }
+            onClick={() => handleTap(card.id, card.frontHref, card.backHref)}
             position="relative"
             width={
               activeCard === card.id
@@ -211,16 +239,6 @@ export default function AccordionCards() {
               <Text fontSize="xs" fontWeight="bold" p={2}>
                 Back of {card.title}
               </Text>
-              {/* {card.backHref && (
-                <a
-                  href={card.backHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "cyan", textDecoration: "underline" }}
-                >
-                  Visit Back Link
-                </a>
-              )} */}
             </Box>
           </Box>
         </Tooltip>
