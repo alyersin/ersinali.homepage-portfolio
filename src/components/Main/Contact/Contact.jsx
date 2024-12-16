@@ -119,7 +119,8 @@ export default function ContactForm({ secondPageRef }) {
       <Box
         className="borderAll"
         width={{ base: "100%", md: "60%" }}
-        marginTop="40px"
+        // marginTop="40px"
+        margin="auto"
         padding={{ base: "4", md: "6" }}
       >
         <Heading mb={6} fontSize={{ base: "lg", md: "2xl" }} color="white">

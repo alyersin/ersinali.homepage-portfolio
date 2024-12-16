@@ -45,14 +45,14 @@ export default function Main() {
               base: "10%",
               md: "15%",
               lg: "20%",
-            }} /* Adjust dynamically */
-            transform="translateY(-50%)" /* Only vertical centering */
+            }}
+            transform="translateY(-50%)"
             width={{ base: "150px", sm: "200px", md: "300px", lg: "400px" }}
             maxWidth={{
               base: "40%",
               md: "30%",
               lg: "25%",
-            }} /* Control image scaling */
+            }}
             transition="all 0.5s ease-in-out"
             zIndex="10"
             pointerEvents="none"

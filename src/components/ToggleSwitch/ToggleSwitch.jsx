@@ -4,7 +4,7 @@ export default function ToggleSwitch({ isChecked, onChange }) {
   return (
     <FormControl display="flex" alignItems="center" width="auto">
       <FormLabel htmlFor="theme-toggle" mb="0">
-        {isChecked ? "Dark Mode" : "Light Mode"}
+        {isChecked ? "Dark Mode" : "Theme"}
       </FormLabel>
       <Switch
         id="theme-toggle"

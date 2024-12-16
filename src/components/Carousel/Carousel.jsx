@@ -19,7 +19,7 @@ export default function Carousel({ items = [] }) {
       width="100%"
     >
       <Box
-        className="borderAll"
+        className="borderAllRed"
         display="inline-flex"
         animation={`${scroll} 30s linear infinite`}
         style={{ width: "200%" }}
@@ -38,9 +38,8 @@ export default function Carousel({ items = [] }) {
               className="borderAllBlue"
               src={item.src}
               alt={item.alt}
-              boxSize={{ base: "120px", md: "200px", lg: "240px" }} // Square size for mobile
-              height={{ base: "80px", md: "200px", lg: "120px" }} // Ensure it is square
-              width={{ base: "120px", md: "200px", lg: "240px" }} // Ensure it is square
+              width={{ base: "160px", sm: "180px", md: "220px", lg: "260px" }}
+              height="auto"
               objectFit="contain"
               borderRadius="md"
               draggable="false"
