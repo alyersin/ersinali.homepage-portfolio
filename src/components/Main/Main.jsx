@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import LeftSection from "./LeftSection/LeftSection";
 import RightSection from "./RightSection/RightSection";
 import UnderSection from "./UnderSection/UnderSection";
+import Lamp from "../Lamp/Lamp";
 
 export default function Main() {
   const [isFirstPageDark, setIsFirstPageDark] = useState(false);
@@ -23,6 +24,7 @@ export default function Main() {
       color="white"
       textAlign="center"
       mx="auto"
+      position="relative"
     >
       <Box className="borderAllBlue" display="flex" flexDirection="column">
         {/* LEFT AND RIGHT SECTIONS */}
@@ -34,6 +36,20 @@ export default function Main() {
             firstPageRef={firstPageRef}
             secondPageRef={secondPageRef}
           />
+
+          {/* LAMP COMPONENT */}
+          <Box
+            // border="1px solid blue"
+            position="absolute"
+            margin="auto"
+            top="5%"
+            left="6.1%"
+            transform="translate(-50%, -50%)"
+            zIndex="11"
+            width={{ base: "120px", md: "150px", lg: "200px" }}
+          >
+            <Lamp isLightOn={isFirstPageDark} />
+          </Box>
 
           {/* OVERLAPPING IMAGE */}
           <Image

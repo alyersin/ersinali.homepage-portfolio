@@ -33,7 +33,7 @@ export default function RightSection({
       width="65%"
       bg={
         isDark
-          ? "radial-gradient(circle, rgba(67,163,164,1) 0%, rgba(34,31,24,1) 100%)"
+          ? "radial-gradient(circle, rgba(38,102,100,1) 0%, rgba(34,31,24,1) 100%);"
           : "#2a9d8f"
       }
       position="relative"
@@ -56,7 +56,7 @@ export default function RightSection({
         width="100%"
         height="auto"
         margin="auto"
-        padding="4px 0 80px 40px"
+        padding={{ base: "12px 8px", sm: "16px 12px", md: "4px 0 80px 40px" }}
       >
         <Heading as="h1" fontSize={{ base: "2xl", md: "7xl" }} mb={0}>
           Hello,

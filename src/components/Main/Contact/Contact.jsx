@@ -11,7 +11,6 @@ import {
 import Carousel from "../../Carousel/Carousel";
 import ArrowScrollUp from "@/components/ArrowScroll/ArrowScrollUp";
 import ToggleSwitch from "@/components/ToggleSwitch/ToggleSwitch";
-import MobileFooter from "./MobileFooter/MobileFooter";
 
 const images = [
   { src: "/assets/html.png", alt: "html" },
@@ -220,8 +219,6 @@ export default function ContactForm({ secondPageRef }) {
           <Carousel items={images} />
         </Box>
       </Box>
-
-      <MobileFooter />
     </Box>
   );
 }

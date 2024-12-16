@@ -28,36 +28,21 @@ export default function MiniHeader({ toggleTheme }) {
     >
       <Box
         className="borderAllRed"
-        display={{ base: "none", md: "flex" }}
+        display="flex"
         flexDirection="row"
         justifyContent="center"
         alignItems="center"
-        ml={{ base: 0, md: 36 }}
-        height={{ base: "24", md: "24" }}
+        height="24"
         gap={5}
       >
-        <Text className="header-fonts">
-          <Link href="/" textDecoration="none">
-            ABOUT
-          </Link>
-        </Text>
-        <Text className="header-fonts">
-          <Link href="#skills" textDecoration="none">
-            SKILLS
-          </Link>
-        </Text>
-        <Text className="header-fonts">
-          <Link href="#projects" textDecoration="none">
-            PROJECTS
-          </Link>
-        </Text>
-        <Text className="header-fonts">
-          <Link href="#contact" textDecoration="none">
-            CONTACT
-          </Link>
-        </Text>
-
-        <Box className="borderAll" ml={{ base: 0, md: 14 }}>
+        <Box
+          className="borderAll"
+          position="absolute"
+          top="10px"
+          right="10px"
+          zIndex="1001"
+          display="flex"
+        >
           <ToggleSwitch onChange={toggleTheme} />
         </Box>
       </Box>
@@ -72,7 +57,7 @@ export default function MiniHeader({ toggleTheme }) {
         top="50%"
         right="-20px"
         transform="translateY(-50%)"
-        borderRadius="full"
+        borderRadius="2px"
         boxShadow="lg"
         zIndex="1000"
         backgroundColor="gray.700"
