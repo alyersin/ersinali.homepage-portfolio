@@ -1,4 +1,4 @@
-import { Box, useColorMode } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { keyframes } from "@emotion/react";
 import React, { useState } from "react";
 import ArrowScrollUp from "@/components/ArrowScroll/ArrowScrollUp";
@@ -9,16 +9,17 @@ import ToggleSwitch from "@/components/ToggleSwitch/ToggleSwitch";
 export default function UnderSection({ firstPageRef, thirdPageRef }) {
   const [isGradientReversed, setIsGradientReversed] = useState(false);
   const [animationKey, setAnimationKey] = useState(0);
+  const [isDirectionLeft, setIsDirectionLeft] = useState(true);
 
-  // WAVE ANIMATION
   const waveAnimation = keyframes`
-    0% { transform: translateX(100%); }
+    0% { transform: translateX(${isDirectionLeft ? "100%" : "-100%"}); }
     50% { transform: translateX(0); }
     100% { transform: translateX(0); }
   `;
 
   const handleToggle = () => {
     setIsGradientReversed((prev) => !prev);
+    setIsDirectionLeft((prev) => !prev);
     setAnimationKey((prev) => prev + 1);
   };
 

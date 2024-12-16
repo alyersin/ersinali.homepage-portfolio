@@ -105,13 +105,13 @@ a {
 }
 
 .borderAll {
-  border: 1px solid white;
+  /* border: 1px solid white; */
 }
 .borderAllBlue {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 }
 .borderAllRed {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .header-fonts {

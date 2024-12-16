@@ -251,6 +251,7 @@ export default function AccordionCards() {
               }}
             >
               <Image
+                borderRadius={6}
                 src={card.backImage}
                 alt={`${card.title} - Back`}
                 width="100%"

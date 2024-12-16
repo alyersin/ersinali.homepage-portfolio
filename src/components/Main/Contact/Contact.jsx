@@ -96,7 +96,7 @@ export default function ContactForm({ secondPageRef }) {
       maxWidth="1280px"
       width="100%"
       mx="auto"
-      bgColor={isDark ? "#1A202C" : "#13315c"}
+      bgColor={isDark ? "#1A202C" : "#014f86"}
       color={isDark ? "white" : "primary.500"}
       display="flex"
       flexDirection="column"
@@ -105,12 +105,10 @@ export default function ContactForm({ secondPageRef }) {
       padding={{ base: "4", md: "0" }}
       position="relative"
     >
-      {/* Toggle Switch */}
       <Box position="absolute" top="10px" right="10px">
         <ToggleSwitch onChange={handleToggle} />
       </Box>
 
-      {/* Arrow Scroll Up */}
       <Box margin="auto" mt="10px">
         <ArrowScrollUp firstPageRef={secondPageRef} />
       </Box>
@@ -119,7 +117,6 @@ export default function ContactForm({ secondPageRef }) {
       <Box
         className="borderAll"
         width={{ base: "100%", md: "60%" }}
-        // marginTop="40px"
         margin="auto"
         padding={{ base: "4", md: "6" }}
       >
@@ -218,7 +215,7 @@ export default function ContactForm({ secondPageRef }) {
       </Box>
 
       {/* SKILLS */}
-      <Box id="skills" mt={10}>
+      <Box id="skills" mt={14}>
         <Box>
           <Carousel items={images} />
         </Box>
