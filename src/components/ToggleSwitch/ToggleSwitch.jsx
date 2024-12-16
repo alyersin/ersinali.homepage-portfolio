@@ -1,29 +1,15 @@
-import {
-  Switch,
-  FormControl,
-  FormLabel,
-  useColorMode,
-  Box,
-} from "@chakra-ui/react";
-import "/src/app/globals.css";
+import { Switch, FormControl, FormLabel } from "@chakra-ui/react";
 
-export default function ToggleSwitch() {
-  const { colorMode, toggleColorMode } = useColorMode();
-
+export default function ToggleSwitch({ isChecked, onChange }) {
   return (
-    <FormControl
-      className="borderAll"
-      display="flex"
-      alignItems="center"
-      width="auto"
-    >
+    <FormControl display="flex" alignItems="center" width="auto">
       <FormLabel htmlFor="theme-toggle" mb="0">
-        {colorMode === "light"}
+        {isChecked ? "Dark Mode" : "Light Mode"}
       </FormLabel>
       <Switch
         id="theme-toggle"
-        isChecked={colorMode === "dark"}
-        onChange={toggleColorMode}
+        isChecked={isChecked}
+        onChange={onChange}
         colorScheme="yellow"
         aria-label="Toggle theme"
       />

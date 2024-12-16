@@ -14,18 +14,25 @@ import { useDisclosure } from "@chakra-ui/react";
 import React from "react";
 import ToggleSwitch from "@/components/ToggleSwitch/ToggleSwitch";
 
-export default function MiniHeader() {
+export default function MiniHeader({ toggleTheme }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Box className="borderAll">
+    <Box
+      className="borderAll"
+      display="flex"
+      justifyContent={{ base: "end", md: "center" }}
+      alignItems={{ base: "center", md: "center" }}
+      height={{ base: "24", md: "24" }}
+    >
       <Box
-        className="borderAll"
+        className="borderAllRed"
         display={{ base: "none", md: "flex" }}
         flexDirection="row"
         justifyContent="center"
         alignItems="center"
-        height="24"
+        ml={{ base: 0, md: 36 }}
+        height={{ base: "24", md: "24" }}
         gap={5}
       >
         <Text className="header-fonts">
@@ -49,11 +56,13 @@ export default function MiniHeader() {
           </Link>
         </Text>
 
-        <ToggleSwitch />
+        <Box className="borderAll" ml={{ base: 0, md: 14 }}>
+          <ToggleSwitch onChange={toggleTheme} />
+        </Box>
       </Box>
 
       <IconButton
-        className="hamburger-icon"
+        className="borderAllRed"
         aria-label="Open menu"
         icon={<HamburgerIcon />}
         onClick={onOpen}
@@ -73,40 +82,16 @@ export default function MiniHeader() {
             <DrawerCloseButton />
             <DrawerBody>
               <Box as="nav">
-                <Link
-                  href="/"
-                  color="teal.300"
-                  display="block"
-                  mb={2}
-                  onClick={(e) => handleClick(e, "#about")}
-                >
+                <Link href="/" color="teal.300" display="block" mb={2}>
                   About
                 </Link>
-                <Link
-                  href="#skills"
-                  color="teal.300"
-                  display="block"
-                  mb={2}
-                  onClick={(e) => handleClick(e, "#skills")}
-                >
+                <Link href="#skills" color="teal.300" display="block" mb={2}>
                   Skills
                 </Link>
-                <Link
-                  href="#projects"
-                  color="teal.300"
-                  display="block"
-                  mb={2}
-                  onClick={(e) => handleClick(e, "#projects")}
-                >
+                <Link href="#projects" color="teal.300" display="block" mb={2}>
                   Projects
                 </Link>
-                <Link
-                  href="#contact"
-                  color="teal.300"
-                  display="block"
-                  mb={2}
-                  onClick={(e) => handleClick(e, "#contact")}
-                >
+                <Link href="#contact" color="teal.300" display="block" mb={2}>
                   Contact
                 </Link>
               </Box>

@@ -7,33 +7,43 @@ import {
   Icon,
   Flex,
   HStack,
-  useColorMode,
 } from "@chakra-ui/react";
 import {
   FaGithub,
   FaLinkedin,
   FaFacebook,
-  FaTwitter,
   FaDownload,
   FaEnvelope,
 } from "react-icons/fa";
-import React from "react";
 import MiniHeader from "./MiniHeader/MiniHeader";
 import ArrowScrollDown from "@/components/ArrowScroll/ArrowScrollDown";
 
-export default function RightSection({ firstPageRef, secondPageRef }) {
-  const { colorMode } = useColorMode();
-
+export default function RightSection({
+  isDark,
+  toggleTheme,
+  firstPageRef,
+  secondPageRef,
+}) {
   return (
     <Box
+      display="flex"
+      flexDirection="column"
       className="borderAll"
       height="100vh"
       width="65%"
-      bg={colorMode === "light" ? "#2a9d8f" : "#1a202c"} // Dynamic background color
+      bg={
+        isDark
+          ? "radial-gradient(circle, rgba(67,163,164,1) 0%, rgba(34,31,24,1) 100%)"
+          : "#2a9d8f"
+      }
       position="relative"
     >
-      <MiniHeader />
-      {/* INFORMATION */}
+      {/* MiniHeader */}
+      <Box>
+        <MiniHeader toggleTheme={toggleTheme} />
+      </Box>
+
+      {/* Information Section */}
       <Box
         className="borderAll"
         display="flex"
@@ -42,22 +52,25 @@ export default function RightSection({ firstPageRef, secondPageRef }) {
         alignItems="center"
         textAlign="center"
         gap={{ base: "4", md: "0" }}
+        fontFamily="Mosk"
+        fontWeight="900"
         fontSize={{ base: "lg", md: "xl" }}
         width="100%"
-        px={{ base: 4, md: 8 }}
-        py={12}
+        height="auto"
+        margin="auto"
+        padding="4px 0 80px 40px"
       >
         <Heading as="h1" fontSize={{ base: "2xl", md: "7xl" }} mb={0}>
           Hello,
         </Heading>
         <Text fontSize={{ base: "lg", md: "2.5rem" }}>
           This is{" "}
-          <Text as="span" color="#E9008A" fontWeight="bold">
+          <Text as="span" color={isDark ? "#f5f5f5" : "#404040"}>
             ERSIN
           </Text>
           , I&apos;m a
         </Text>
-        <Text fontSize={{ base: "lg", md: "2.5rem" }} fontWeight="bold">
+        <Text fontSize={{ base: "lg", md: "2.5rem" }}>
           Freelance{" "}
           <Text as="span" color="#16F5B5">
             Web Developer
@@ -65,26 +78,28 @@ export default function RightSection({ firstPageRef, secondPageRef }) {
           .
         </Text>
 
-        <HStack
-          spacing={{ base: 8, md: 6 }}
-          mt={14}
-          mb={14}
-          color="rgba(196,65,176,1)"
-        >
+        {/* Social Media Icons */}
+        <HStack spacing={{ base: 8, md: 6 }} mt={14} mb={14}>
           <Link href="https://github.com" isExternal>
-            <Icon as={FaGithub} boxSize={{ base: 6, md: 7 }} />
+            <Icon as={FaGithub} boxSize={{ base: 6, md: 7 }} color="black" />
           </Link>
           <Link href="https://linkedin.com" isExternal>
-            <Icon as={FaLinkedin} boxSize={{ base: 6, md: 7 }} />
+            <Icon
+              as={FaLinkedin}
+              boxSize={{ base: 6, md: 7 }}
+              color="#0077B5"
+            />
           </Link>
           <Link href="https://facebook.com" isExternal>
-            <Icon as={FaFacebook} boxSize={{ base: 6, md: 7 }} />
-          </Link>
-          <Link href="https://twitter.com" isExternal>
-            <Icon as={FaTwitter} boxSize={{ base: 6, md: 7 }} />
+            <Icon
+              as={FaFacebook}
+              boxSize={{ base: 6, md: 7 }}
+              color="#1877F2"
+            />
           </Link>
         </HStack>
 
+        {/* Buttons */}
         <Flex
           flexDir={{ base: "column", md: "row" }}
           gap={{ base: 6, md: 4 }}
@@ -124,9 +139,10 @@ export default function RightSection({ firstPageRef, secondPageRef }) {
         </Flex>
       </Box>
 
+      {/* Arrow Scroll Down */}
       <Box
         position="absolute"
-        bottom="40px"
+        bottom="10px"
         left="23%"
         transform="translateX(-50%)"
       >

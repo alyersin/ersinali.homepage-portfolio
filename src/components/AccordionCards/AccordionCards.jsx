@@ -227,6 +227,7 @@ export default function AccordionCards() {
               }}
             >
               <Image
+                borderRadius={6}
                 src={card.frontImage}
                 alt={card.title}
                 width="100%"

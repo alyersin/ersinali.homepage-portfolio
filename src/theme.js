@@ -5,6 +5,10 @@ const theme = extendTheme({
     initialColorMode: "light",
     useSystemColorMode: false,
   },
+  fonts: {
+    heading: `'Mosk', sans-serif`,
+    body: `'Mosk', sans-serif`,
+  },
   breakpoints: {
     sm: "30em", // 480px
     md: "48em", // 768px

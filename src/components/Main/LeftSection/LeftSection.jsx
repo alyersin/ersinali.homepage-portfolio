@@ -1,15 +1,17 @@
-import { Box, Heading, Link, Image, useColorMode } from "@chakra-ui/react";
+import { Box, Link, Image } from "@chakra-ui/react";
 import React from "react";
 
-export default function LeftSection() {
-  const { colorMode } = useColorMode();
-
+export default function LeftSection({ isDark }) {
   return (
     <Box
       className="borderAll"
       height="100vh"
       width="35%"
-      bg={colorMode === "light" ? "#8d99ae" : "#2d3748"} // Dynamic background color
+      bg={
+        isDark
+          ? "#1a202c"
+          : "radial-gradient(circle, rgba(237,228,232,1) 0%, rgba(148,187,233,1) 100%)"
+      }
     >
       <Link href="/" draggable={false}>
         <Box

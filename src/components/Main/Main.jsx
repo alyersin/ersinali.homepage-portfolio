@@ -1,40 +1,19 @@
 "use client";
-import { Box } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
 import Contact from "./Contact/Contact";
-import { keyframes } from "@emotion/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import LeftSection from "./LeftSection/LeftSection";
 import RightSection from "./RightSection/RightSection";
 import UnderSection from "./UnderSection/UnderSection";
-import "/src/app/globals.css";
-
-const shakeArrowDown = keyframes`
-  0% { transform: translateY(0); }
-  25% { transform: translateY(-5px); }
-  50% { transform: translateY(5px); }
-  75% { transform: translateY(-5px); }
-  100% { transform: translateY(0); }
-`;
-
-const shakeArrowUp = keyframes`
-  0% { transform: translateY(0); }
-  25% { transform: translateY(5px); }
-  50% { transform: translateY(-5px); }
-  75% { transform: translateY(5px); }
-  100% { transform: translateY(0); }
-`;
 
 export default function Main() {
+  const [isFirstPageDark, setIsFirstPageDark] = useState(false);
   const secondPageRef = useRef(null);
   const firstPageRef = useRef(null);
   const thirdPageRef = useRef(null);
 
-  const handleScrollDown = () => {
-    secondPageRef.current.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const handleScrollUp = () => {
-    firstPageRef.current.scrollIntoView({ behavior: "smooth" });
+  const toggleFirstPageTheme = () => {
+    setIsFirstPageDark((prev) => !prev);
   };
 
   return (
@@ -46,13 +25,41 @@ export default function Main() {
       mx="auto"
     >
       <Box className="borderAllBlue" display="flex" flexDirection="column">
+        {/* LEFT AND RIGHT SECTIONS */}
         <Box display="flex" flexDirection="row" ref={firstPageRef}>
-          <LeftSection />
+          <LeftSection isDark={isFirstPageDark} />
           <RightSection
+            isDark={isFirstPageDark}
+            toggleTheme={toggleFirstPageTheme}
             firstPageRef={firstPageRef}
             secondPageRef={secondPageRef}
           />
+
+          {/* OVERLAPPING IMAGE */}
+          <Image
+            src="/coder-clipart.png"
+            alt="Boy Working on Computer"
+            position="absolute"
+            top="17%"
+            left={{
+              base: "10%",
+              md: "15%",
+              lg: "20%",
+            }} /* Adjust dynamically */
+            transform="translateY(-50%)" /* Only vertical centering */
+            width={{ base: "150px", sm: "200px", md: "300px", lg: "400px" }}
+            maxWidth={{
+              base: "40%",
+              md: "30%",
+              lg: "25%",
+            }} /* Control image scaling */
+            transition="all 0.5s ease-in-out"
+            zIndex="10"
+            pointerEvents="none"
+          />
         </Box>
+
+        {/* UNDER SECTION */}
         <Box className="borderAllBlue" id="projects" ref={secondPageRef}>
           <UnderSection
             firstPageRef={firstPageRef}
@@ -60,6 +67,7 @@ export default function Main() {
           />
         </Box>
 
+        {/* CONTACT SECTION */}
         <Box className="borderAllRed" id="contact" ref={thirdPageRef}>
           <Contact secondPageRef={secondPageRef} />
         </Box>

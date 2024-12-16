@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import Carousel from "../../Carousel/Carousel";
 import ArrowScrollUp from "@/components/ArrowScroll/ArrowScrollUp";
+import ToggleSwitch from "@/components/ToggleSwitch/ToggleSwitch";
 
 const images = [
   { src: "/assets/html.png", alt: "html" },
@@ -41,6 +42,11 @@ export default function ContactForm({ secondPageRef }) {
 
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState("");
+  const [isDark, setIsDark] = useState(false);
+
+  const handleToggle = () => {
+    setIsDark((prev) => !prev);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -90,32 +96,23 @@ export default function ContactForm({ secondPageRef }) {
       maxWidth="1280px"
       width="100%"
       mx="auto"
-      bgColor="#13315c"
-      color="primary.500"
+      bgColor={isDark ? "#1A202C" : "#13315c"}
+      color={isDark ? "white" : "primary.500"}
       display="flex"
       flexDirection="column"
       alignItems="center"
       boxShadow="lg"
       padding={{ base: "4", md: "0" }}
+      position="relative"
     >
-      <Box margin="auto" mt="40px">
-        <ArrowScrollUp firstPageRef={secondPageRef} />
+      {/* Toggle Switch */}
+      <Box position="absolute" top="10px" right="10px">
+        <ToggleSwitch onChange={handleToggle} />
       </Box>
 
-      {/* SKILLS */}
-      <Box mt={10}>
-        <Heading
-          className="borderAll"
-          id="skills"
-          fontSize={{ base: "2xl", md: "3xl" }}
-          color="#149AD7"
-          mb={6}
-        >
-          My Skills
-        </Heading>
-        <Box>
-          <Carousel items={images} />
-        </Box>
+      {/* Arrow Scroll Up */}
+      <Box margin="auto" mt="10px">
+        <ArrowScrollUp firstPageRef={secondPageRef} />
       </Box>
 
       {/* CONTACT FORM */}
@@ -140,7 +137,7 @@ export default function ContactForm({ secondPageRef }) {
               fontSize={{ base: "sm", md: "md" }}
               value={formData.name}
               onChange={handleChange}
-              bgColor="gray.800"
+              bgColor={isDark ? "gray.700" : "gray.800"}
               color="white"
               border="1px solid"
               borderColor="primary.500"
@@ -161,7 +158,7 @@ export default function ContactForm({ secondPageRef }) {
               fontSize={{ base: "sm", md: "md" }}
               value={formData.email}
               onChange={handleChange}
-              bgColor="gray.800"
+              bgColor={isDark ? "gray.700" : "gray.800"}
               color="white"
               border="1px solid"
               borderColor="primary.500"
@@ -181,7 +178,7 @@ export default function ContactForm({ secondPageRef }) {
               fontSize={{ base: "sm", md: "md" }}
               value={formData.message}
               onChange={handleChange}
-              bgColor="gray.800"
+              bgColor={isDark ? "gray.700" : "gray.800"}
               color="white"
               border="1px solid"
               borderColor="primary.500"
@@ -217,6 +214,13 @@ export default function ContactForm({ secondPageRef }) {
             </Text>
           )}
         </form>
+      </Box>
+
+      {/* SKILLS */}
+      <Box id="skills" mt={10}>
+        <Box>
+          <Carousel items={images} />
+        </Box>
       </Box>
     </Box>
   );
