@@ -2,11 +2,13 @@
 
 import React from "react";
 import { Box } from "@chakra-ui/react";
+import "../../app/globals.css";
 
 export default function Lamp({ isLightOn }) {
   return (
     <Box
-      width={{ base: "120px", sm: "150px", md: "410px" }}
+      className="borderAllRed"
+      width={{ base: "150px", sm: "150px", md: "410px" }}
       height={{ base: "240px", sm: "300px", md: "430px" }}
       display="flex"
       justifyContent="center"
@@ -19,13 +21,13 @@ export default function Lamp({ isLightOn }) {
         width="100%"
         height="100%"
       >
-        {/* Ceiling Mount */}
+        {/* CEILING MOUNT */}
         <rect x="85" y="0" width="30" height="40" fill="#333" rx="5" />
 
-        {/* Hanging Cord */}
+        {/* HANGING CABLE */}
         <rect x="98" y="40" width="4" height="124" fill="#444" />
 
-        {/* Lamp Shade */}
+        {/* LAMP SHADE */}
         <path
           d="M 50 200 Q 100 130 150 200 L 100 200 Z"
           fill="#666"
@@ -33,7 +35,7 @@ export default function Lamp({ isLightOn }) {
           strokeWidth="2"
         />
 
-        {/* Light Bulb*/}
+        {/* LIGHT BULB*/}
         <circle
           cx="100"
           cy="200"
@@ -46,7 +48,7 @@ export default function Lamp({ isLightOn }) {
           }}
         />
 
-        {/* Light Glow */}
+        {/* LIGHT GLOW */}
         <g
           style={{
             opacity: isLightOn ? 0.7 : 0,
@@ -54,7 +56,7 @@ export default function Lamp({ isLightOn }) {
           }}
         >
           <defs>
-            {/* LightGlow Gradient */}
+            {/* LIGHT GLOW GRADIENT */}
             <radialGradient id="lightGlowDynamic" cx="50%" cy="55%" r="40%">
               <stop
                 offset="0%"
@@ -77,7 +79,7 @@ export default function Lamp({ isLightOn }) {
             </radialGradient>
           </defs>
 
-          {/* Light Glow*/}
+          {/* LIGHT GLOW*/}
           <polygon
             points="160,162 0,400 340,400"
             fill="url(#lightGlowDynamic)"

@@ -39,12 +39,20 @@ export default function Main() {
 
           {/* LAMP COMPONENT */}
           <Box
-            // border="1px solid blue"
+            className="borderAllBlue"
             position="absolute"
             margin="auto"
-            top="5%"
-            left="6.1%"
-            transform="translate(-50%, -50%)"
+            top={{
+              md: "5%",
+            }}
+            left={{
+              base: "14%",
+              md: "6.1%",
+            }}
+            transform={{
+              base: "translate(-50%, 0)",
+              md: "translate(-50%, -50%)",
+            }}
             zIndex="11"
             width={{ base: "120px", md: "150px", lg: "200px" }}
           >
@@ -60,14 +68,21 @@ export default function Main() {
             left={{
               base: "10%",
               md: "15%",
-              lg: "20%",
+              lg: "10%",
             }}
             transform="translateY(-50%)"
-            width={{ base: "150px", sm: "200px", md: "300px", lg: "400px" }}
+            width={{
+              base: "150px", // SMALL screens
+              sm: "200px", // TABLETS
+              md: "300px", // MEDIUM screens
+              lg: "500px", // LARGER screens
+              xl: "600px", // XL screens
+            }}
             maxWidth={{
-              base: "40%",
-              md: "30%",
-              lg: "25%",
+              base: "40%", // SMALL screens
+              md: "30%", // MEDIUM screens
+              lg: "35%", // LARGER screens
+              xl: "40%", // XL screens
             }}
             transition="all 0.5s ease-in-out"
             zIndex="10"

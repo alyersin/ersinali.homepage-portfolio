@@ -53,7 +53,13 @@ export default function UnderSection({ firstPageRef, thirdPageRef }) {
         zIndex={1}
       />
 
-      <Box position="absolute" top="10px" right="10px" zIndex="10">
+      <Box
+        className="borderAll"
+        position="absolute"
+        top="10px"
+        right="10px"
+        zIndex="10"
+      >
         <ToggleSwitch onChange={handleToggle} />
       </Box>
 

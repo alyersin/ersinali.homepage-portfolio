@@ -104,7 +104,7 @@ export default function ContactForm({ secondPageRef }) {
       boxShadow="lg"
       position="relative"
     >
-      <Box position="absolute" top="10px" right="10px">
+      <Box className="borderAll" position="absolute" top="10px" right="10px">
         <ToggleSwitch onChange={handleToggle} />
       </Box>
 
@@ -117,7 +117,7 @@ export default function ContactForm({ secondPageRef }) {
         className="borderAll"
         width={{ base: "100%", md: "60%" }}
         margin="auto"
-        padding={{ base: "8", md: "6" }}
+        padding={{ base: "12", md: "6" }}
       >
         <Heading mb={6} fontSize={{ base: "lg", md: "2xl" }} color="white">
           Contact Form
@@ -214,7 +214,7 @@ export default function ContactForm({ secondPageRef }) {
       </Box>
 
       {/* SKILLS */}
-      <Box id="skills" mt={0}>
+      <Box id="skills" mb={4}>
         <Box>
           <Carousel items={images} />
         </Box>
