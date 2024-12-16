@@ -2,7 +2,6 @@
 import { Box, HStack, Image } from "@chakra-ui/react";
 import { keyframes } from "@emotion/react";
 
-// Define the scroll animation
 const scroll = keyframes`
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); } 
@@ -24,7 +23,7 @@ export default function Carousel({ items = [] }) {
         display="inline-flex"
         animation={`${scroll} 30s linear infinite`}
         style={{ width: "200%" }}
-        gap={{ base: 2, md: 4 }}
+        gap={{ base: 1, md: 4 }}
       >
         {doubledItems.map((item, index) => (
           <HStack
@@ -39,8 +38,8 @@ export default function Carousel({ items = [] }) {
               className="borderAllBlue"
               src={item.src}
               alt={item.alt}
-              width={{ base: "160px", sm: "180px", md: "220px", lg: "260px" }} // Wider images
-              height="auto" // Maintain proportional height
+              width={{ base: "160px", sm: "180px", md: "220px", lg: "260px" }}
+              height="auto"
               objectFit="contain"
               borderRadius="md"
               draggable="false"

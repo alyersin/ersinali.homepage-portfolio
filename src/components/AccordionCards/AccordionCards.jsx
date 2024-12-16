@@ -54,8 +54,8 @@ export default function AccordionCards() {
   const containerRef = useRef(null);
 
   const tooltipText = isMobile
-    ? "Single tap to interact / Double tap to flip"
-    : "Click interact / SPACE to flip";
+    ? "Tap to interact / Double tap to flip"
+    : "Click to interact / SPACE to flip";
 
   // RIGHT ARROW HANDLER
   const handleNext = () => {

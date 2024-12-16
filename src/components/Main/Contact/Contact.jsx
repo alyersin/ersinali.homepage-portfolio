@@ -11,6 +11,7 @@ import {
 import Carousel from "../../Carousel/Carousel";
 import ArrowScrollUp from "@/components/ArrowScroll/ArrowScrollUp";
 import ToggleSwitch from "@/components/ToggleSwitch/ToggleSwitch";
+import MobileFooter from "./MobileFooter/MobileFooter";
 
 const images = [
   { src: "/assets/html.png", alt: "html" },
@@ -102,7 +103,6 @@ export default function ContactForm({ secondPageRef }) {
       flexDirection="column"
       alignItems="center"
       boxShadow="lg"
-      padding={{ base: "4", md: "0" }}
       position="relative"
     >
       <Box position="absolute" top="10px" right="10px">
@@ -118,7 +118,7 @@ export default function ContactForm({ secondPageRef }) {
         className="borderAll"
         width={{ base: "100%", md: "60%" }}
         margin="auto"
-        padding={{ base: "4", md: "6" }}
+        padding={{ base: "8", md: "6" }}
       >
         <Heading mb={6} fontSize={{ base: "lg", md: "2xl" }} color="white">
           Contact Form
@@ -215,11 +215,13 @@ export default function ContactForm({ secondPageRef }) {
       </Box>
 
       {/* SKILLS */}
-      <Box id="skills" mt={14}>
+      <Box id="skills" mt={0}>
         <Box>
           <Carousel items={images} />
         </Box>
       </Box>
+
+      <MobileFooter />
     </Box>
   );
 }

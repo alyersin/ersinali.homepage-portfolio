@@ -24,6 +24,7 @@ export default function MiniHeader({ toggleTheme }) {
       justifyContent={{ base: "end", md: "center" }}
       alignItems={{ base: "center", md: "center" }}
       height={{ base: "24", md: "24" }}
+      position="relative"
     >
       <Box
         className="borderAllRed"
@@ -66,11 +67,22 @@ export default function MiniHeader({ toggleTheme }) {
         aria-label="Open menu"
         icon={<HamburgerIcon />}
         onClick={onOpen}
-        display={{ base: "flex", md: "none" }}
-        flexDirection="column"
+        display="flex"
+        position="fixed"
+        top="50%"
+        right="-20px"
+        transform="translateY(-50%)"
+        borderRadius="full"
+        boxShadow="lg"
+        zIndex="1000"
+        backgroundColor="gray.700"
+        color="white"
+        _hover={{ bg: "gray.600" }}
+        onMouseEnter={onOpen}
+        onTouchStart={onOpen}
       />
 
-      {/* DRAWER */}
+      {/* Drawer */}
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay className="borderAllBlue">
           <DrawerContent

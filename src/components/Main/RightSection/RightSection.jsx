@@ -38,12 +38,10 @@ export default function RightSection({
       }
       position="relative"
     >
-      {/* MiniHeader */}
       <Box>
         <MiniHeader toggleTheme={toggleTheme} />
       </Box>
 
-      {/* Information Section */}
       <Box
         className="borderAll"
         display="flex"
@@ -78,7 +76,6 @@ export default function RightSection({
           .
         </Text>
 
-        {/* Social Media Icons */}
         <HStack spacing={{ base: 8, md: 6 }} mt={14} mb={14}>
           <Link href="https://github.com" isExternal>
             <Icon as={FaGithub} boxSize={{ base: 6, md: 7 }} color="black" />
@@ -99,7 +96,6 @@ export default function RightSection({
           </Link>
         </HStack>
 
-        {/* Buttons */}
         <Flex
           flexDir={{ base: "column", md: "row" }}
           gap={{ base: 6, md: 4 }}
@@ -139,7 +135,6 @@ export default function RightSection({
         </Flex>
       </Box>
 
-      {/* Arrow Scroll Down */}
       <Box
         position="absolute"
         bottom="10px"
