@@ -14,7 +14,7 @@ import { useDisclosure } from "@chakra-ui/react";
 import React from "react";
 import ToggleSwitch from "@/components/ToggleSwitch/ToggleSwitch";
 
-export default function MiniHeader({ toggleTheme }) {
+export default function MiniHeader({ toggleTheme, isDarkMode }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -35,6 +35,14 @@ export default function MiniHeader({ toggleTheme }) {
         height="24"
         gap={5}
       >
+        {/* <Box>
+          <ToggleSwitch
+            onChange={toggleTheme}
+            isChecked={isDarkMode}
+            variant="sun-moon"
+          />
+        </Box> */}
+
         <Box
           className="borderAll"
           position="absolute"
@@ -43,7 +51,11 @@ export default function MiniHeader({ toggleTheme }) {
           zIndex="1001"
           display="flex"
         >
-          <ToggleSwitch onChange={toggleTheme} />
+          <ToggleSwitch
+            onChange={toggleTheme}
+            isChecked={isDarkMode}
+            variant="default"
+          />
         </Box>
       </Box>
 

@@ -25,6 +25,7 @@ const images = [
   { src: "/assets/mysql.png", alt: "mysql" },
   { src: "/assets/ai.png", alt: "ai" },
   { src: "/assets/csharp.png", alt: "csharp" },
+  { src: "/assets/SVG_Logo.svg", alt: "svg" },
 ];
 
 export default function ContactForm({ secondPageRef }) {
@@ -214,7 +215,7 @@ export default function ContactForm({ secondPageRef }) {
       </Box>
 
       {/* SKILLS */}
-      <Box id="skills" mb={4}>
+      <Box id="skills" mb={12}>
         <Box>
           <Carousel items={images} />
         </Box>

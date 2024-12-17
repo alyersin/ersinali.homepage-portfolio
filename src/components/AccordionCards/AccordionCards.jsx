@@ -210,11 +210,11 @@ export default function AccordionCards() {
             height={{ base: "300px", md: "400px" }}
             cursor="pointer"
             sx={{
-              transition: "width 0.1s ease-out, transform 0.2s ease-out",
               transform: flippedCards[card.id]
                 ? "rotateY(180deg)"
                 : "rotateY(0)",
               transformStyle: "preserve-3d",
+              transition: "transform 1s, width 0.3s",
             }}
           >
             {/* FRONT SIDE */}

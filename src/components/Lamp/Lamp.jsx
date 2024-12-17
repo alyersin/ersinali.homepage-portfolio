@@ -30,7 +30,7 @@ export default function Lamp({ isLightOn }) {
         {/* LAMP SHADE */}
         <path
           d="M 50 200 Q 100 130 150 200 L 100 200 Z"
-          fill="#666"
+          fill="#bc6c25"
           stroke="#000"
           strokeWidth="2"
         />
