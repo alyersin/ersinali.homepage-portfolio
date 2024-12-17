@@ -82,9 +82,6 @@ export default function MiniHeader({ toggleTheme }) {
                 <Link href="/" color="teal.300" display="block" mb={2}>
                   About
                 </Link>
-                <Link href="#skills" color="teal.300" display="block" mb={2}>
-                  Skills
-                </Link>
                 <Link href="#projects" color="teal.300" display="block" mb={2}>
                   Projects
                 </Link>

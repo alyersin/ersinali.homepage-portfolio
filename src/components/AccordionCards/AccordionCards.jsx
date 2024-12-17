@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import { useState, useEffect, useRef } from "react";
+import { useSwipeable } from "react-swipeable";
 import { keyframes } from "@emotion/react";
 import cards from "../../data/projects.json";
 import { useCallback } from "react";
@@ -47,8 +48,6 @@ export default function AccordionCards() {
   const [activeCard, setActiveCard] = useState(null);
   const [flippedCards, setFlippedCards] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [lastTap, setLastTap] = useState(0);
-  const [tapTimeout, setTapTimeout] = useState(null);
   const visibleCardsCount = useBreakpointValue({ base: 3, md: 7 });
   const isMobile = useBreakpointValue({ base: true, md: false });
   const containerRef = useRef(null);
@@ -69,86 +68,13 @@ export default function AccordionCards() {
     );
   };
 
-  // HANDLE CARD TAP
-  const handleTap = (id, frontHref, backHref) => {
-    const now = Date.now();
-
-    if (now - lastTap < 300 && activeCard === id) {
-      // DOUBLE TAP CODE
-      clearTimeout(tapTimeout);
-      setFlippedCards((prev) => ({
-        ...prev,
-        [id]: !prev[id],
-      }));
-    } else {
-      // SINGLE TAP CODE
-      setLastTap(now);
-      setTapTimeout(
-        setTimeout(() => {
-          if (activeCard === id) {
-            if (flippedCards[id] && backHref) {
-              window.open(backHref, "_blank", "noopener,noreferrer");
-            } else if (!flippedCards[id] && frontHref) {
-              window.open(frontHref, "_blank", "noopener,noreferrer");
-            }
-          } else {
-            setActiveCard(id);
-            setFlippedCards((prev) => ({ ...prev, [id]: false }));
-          }
-        }, 300)
-      );
-    }
-  };
-
-  // HANDLE SPACE KEY TO FLIP (DESKTOP ONLY)
-  const handleKeyDown = useCallback(
-    (event) => {
-      if (!isMobile) {
-        if (event.key === "Escape") {
-          setActiveCard(null);
-          setFlippedCards({});
-        } else if (event.key === " " && activeCard !== null) {
-          event.preventDefault();
-          setFlippedCards((prev) => ({
-            ...prev,
-            [activeCard]: !prev[activeCard],
-          }));
-        }
-      }
-    },
-    [activeCard, isMobile]
-  );
-
-  // HANDLE CLICK OUTSIDE FOR MOBILE / RESET CARDS
-  const handleClickOutside = useCallback(
-    (event) => {
-      if (
-        isMobile &&
-        containerRef.current &&
-        !containerRef.current.contains(event.target)
-      ) {
-        setActiveCard(null);
-        setFlippedCards({});
-      }
-    },
-    [isMobile]
-  );
-
-  useEffect(() => {
-    if (!isMobile) {
-      window.addEventListener("keydown", handleKeyDown);
-    } else {
-      document.addEventListener("click", handleClickOutside);
-    }
-
-    return () => {
-      if (!isMobile) {
-        window.removeEventListener("keydown", handleKeyDown);
-      } else {
-        document.removeEventListener("click", handleClickOutside);
-      }
-    };
-  }, [handleKeyDown, handleClickOutside, isMobile]);
+  // SWIPE HANDLERS
+  const handlers = useSwipeable({
+    onSwipedLeft: () => handleNext(),
+    onSwipedRight: () => handlePrev(),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: false,
+  });
 
   const visibleCards = cards
     .slice(currentIndex, currentIndex + visibleCardsCount)
@@ -162,6 +88,7 @@ export default function AccordionCards() {
   return (
     <Flex
       ref={containerRef}
+      {...(isMobile ? handlers : {})}
       position="relative"
       className="borderAll"
       direction="row"
@@ -200,7 +127,6 @@ export default function AccordionCards() {
           }}
         >
           <Box
-            onClick={() => handleTap(card.id, card.frontHref, card.backHref)}
             position="relative"
             width={
               activeCard === card.id
@@ -210,59 +136,21 @@ export default function AccordionCards() {
             height={{ base: "300px", md: "400px" }}
             cursor="pointer"
             sx={{
-              transform: flippedCards[card.id]
-                ? "rotateY(180deg)"
-                : "rotateY(0)",
-              transformStyle: "preserve-3d",
-              transition: "transform 1s, width 0.3s",
+              transition: "width 0.1s ease-out, transform 0.2s ease-out",
             }}
           >
-            {/* FRONT SIDE */}
-            <Box
-              position="absolute"
+            <Image
+              borderRadius={6}
+              src={card.frontImage}
+              alt={card.title}
               width="100%"
               height="100%"
-              style={{
-                backfaceVisibility: "hidden",
-              }}
-            >
-              <Image
-                borderRadius={6}
-                src={card.frontImage}
-                alt={card.title}
-                width="100%"
-                height="100%"
-                objectFit="cover"
-                draggable={false}
-              />
-              <Text fontSize="xs" fontWeight="bold" p={2}>
-                {card.title}
-              </Text>
-            </Box>
-
-            {/* BACK SIDE */}
-            <Box
-              position="absolute"
-              width="100%"
-              height="100%"
-              style={{
-                backfaceVisibility: "hidden",
-                transform: "rotateY(180deg)",
-              }}
-            >
-              <Image
-                borderRadius={6}
-                src={card.backImage}
-                alt={`${card.title} - Back`}
-                width="100%"
-                height="100%"
-                objectFit="cover"
-                draggable={false}
-              />
-              <Text fontSize="xs" fontWeight="bold" p={2}>
-                SOURCE CODE
-              </Text>
-            </Box>
+              objectFit="cover"
+              draggable={false}
+            />
+            <Text fontSize="xs" fontWeight="bold" p={2}>
+              {card.title}
+            </Text>
           </Box>
         </Tooltip>
       ))}
