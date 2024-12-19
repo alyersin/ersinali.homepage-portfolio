@@ -26,10 +26,10 @@
   {
     "id": 4,
     "title": "Coming Soon",
-    "frontImage": "/assets/projects/frontImage-1.jpg",
-    "backImage": "/assets/projects/backImage-5.jpg",
-    "frontHref": "",
-    "backHref": ""
+    "frontImage": "/assets/projects/techblog.avif",
+    "backImage": "/assets/projects/backImage-2.jpg",
+    "frontHref": "https://tech-blog-alpha-fawn.vercel.app/",
+    "backHref": "https://github.com/alyersin/TechBlog-NextJS.git"
   },
   {
     "id": 5,
