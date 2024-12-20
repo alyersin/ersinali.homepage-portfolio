@@ -25,7 +25,7 @@
   },
   {
     "id": 4,
-    "title": "Coming Soon",
+    "title": "TECH-BLOG",
     "frontImage": "/assets/projects/techblog.avif",
     "backImage": "/assets/projects/backImage-2.jpg",
     "frontHref": "https://tech-blog-alpha-fawn.vercel.app/",
