@@ -29,7 +29,7 @@ export default function ArrowScrollUp({ firstPageRef }) {
     >
       <Icon
         as={ChevronUpIcon}
-        boxSize={{ base: 8, md: 10 }}
+        boxSize={{ base: 6, md: 6 }}
         sx={{
           animation: `${shakeArrowUp} 2s infinite`,
           animationTimingFunction: "ease-in-out",
