@@ -33,11 +33,11 @@
   },
   {
     "id": 5,
-    "title": "Coming Soon",
-    "frontImage": "/assets/projects/frontImage-1.jpg",
-    "backImage": "/assets/projects/backImage-5.avif",
+    "title": "CAREER-SKETCH",
+    "frontImage": "/assets/projects/career-sketch.avif",
+    "backImage": "/assets/projects/backImage-2.avif",
     "frontHref": "",
-    "backHref": ""
+    "backHref": "https://github.com/alyersin/career-sketch.git"
   },
   {
     "id": 6,
