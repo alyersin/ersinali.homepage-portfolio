@@ -3,7 +3,7 @@
     "id": 1,
     "title": "CITY-CHASE",
     "frontImage": "/assets/projects/city-chase.avif",
-    "backImage": "/assets/projects/backImage-2.jpg",
+    "backImage": "/assets/projects/backImage-2.avif",
     "frontHref": "https://city-chase.vercel.app/",
     "backHref": "https://github.com/alyersin/City-Chase-NEXTJS-SQLite"
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "title": "URBAN-EDGE",
     "frontImage": "/assets/projects/urban-edge.avif",
-    "backImage": "/assets/projects/backImage-2.jpg",
+    "backImage": "/assets/projects/backImage-2.avif",
     "frontHref": "https://urban-edge-rho.vercel.app/",
     "backHref": "https://github.com/alyersin/UrbanEdge-Online-Store-NEXTJS"
   },
@@ -19,7 +19,7 @@
     "id": 3,
     "title": "E-QUIZZ",
     "frontImage": "/assets/projects/e-quizz.avif",
-    "backImage": "/assets/projects/backImage-2.jpg",
+    "backImage": "/assets/projects/backImage-2.avif",
     "frontHref": "https://interactive-quiz-app-rust.vercel.app/",
     "backHref": "https://github.com/alyersin/InteractiveQuizApp"
   },
@@ -27,7 +27,7 @@
     "id": 4,
     "title": "TECH-BLOG",
     "frontImage": "/assets/projects/techblog.avif",
-    "backImage": "/assets/projects/backImage-2.jpg",
+    "backImage": "/assets/projects/backImage-2.avif",
     "frontHref": "https://tech-blog-alpha-fawn.vercel.app/",
     "backHref": "https://github.com/alyersin/TechBlog-NextJS.git"
   },
@@ -35,7 +35,7 @@
     "id": 5,
     "title": "Coming Soon",
     "frontImage": "/assets/projects/frontImage-1.jpg",
-    "backImage": "/assets/projects/backImage-5.jpg",
+    "backImage": "/assets/projects/backImage-5.avif",
     "frontHref": "",
     "backHref": ""
   },
@@ -43,7 +43,7 @@
     "id": 6,
     "title": "Coming Soon",
     "frontImage": "/assets/projects/frontImage-1.jpg",
-    "backImage": "/assets/projects/backImage-5.jpg",
+    "backImage": "/assets/projects/backImage-5.avif",
 
     "frontHref": "",
     "backHref": ""
@@ -52,7 +52,7 @@
     "id": 7,
     "title": "Coming Soon",
     "frontImage": "/assets/projects/frontImage-1.jpg",
-    "backImage": "/assets/projects/backImage-5.jpg",
+    "backImage": "/assets/projects/backImage-5.avif",
     "frontHref": "",
     "backHref": ""
   },
@@ -60,7 +60,7 @@
     "id": 8,
     "title": "Coming Soon",
     "frontImage": "/assets/projects/frontImage-1.jpg",
-    "backImage": "/assets/projects/backImage-5.jpg",
+    "backImage": "/assets/projects/backImage-5.avif",
     "frontHref": "",
     "backHref": ""
   }
