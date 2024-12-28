@@ -36,7 +36,7 @@
     "title": "CAREER-SKETCH",
     "frontImage": "/assets/projects/career-sketch.avif",
     "backImage": "/assets/projects/backImage-2.avif",
-    "frontHref": "",
+    "frontHref": "https://career-sketch.vercel.app/",
     "backHref": "https://github.com/alyersin/career-sketch.git"
   },
   {
