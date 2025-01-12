@@ -17,11 +17,11 @@
   },
   { 
     "id": 3,
-    "title": "E-QUIZZ",
-    "frontImage": "/assets/projects/e-quizz.avif",
+    "title": "SAO-MARCO-PIZZA",
+    "frontImage": "/assets/projects/sao-marco-pizza.avif",
     "backImage": "/assets/projects/backImage-2.avif",
-    "frontHref": "https://interactive-quiz-app-rust.vercel.app/",
-    "backHref": "https://github.com/alyersin/InteractiveQuizApp"
+    "frontHref": "https://sao-marco-pizza.vercel.app/",
+    "backHref": "https://github.com/alyersin/Sao-Marco-pizza"
   },
   {
     "id": 4,
@@ -41,12 +41,11 @@
   },
   {
     "id": 6,
-    "title": "Coming Soon",
-    "frontImage": "/assets/projects/frontImage-1.jpg",
-    "backImage": "/assets/projects/backImage-5.avif",
-
-    "frontHref": "",
-    "backHref": ""
+    "title": "E-QUIZZ",
+    "frontImage": "/assets/projects/e-quizz.avif",
+    "backImage": "/assets/projects/backImage-2.avif",
+    "frontHref": "https://interactive-quiz-app-rust.vercel.app/",
+    "backHref": "https://github.com/alyersin/InteractiveQuizApp"
   },
   {
     "id": 7,
