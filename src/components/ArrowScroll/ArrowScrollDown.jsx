@@ -33,10 +33,10 @@ export default function ArrowScrollDown({ secondPageRef, thirdPageRef }) {
       <Icon
         as={ChevronDownIcon}
         boxSize={{ base: 6, md: 6 }}
-        sx={{
-          animation: `${shakeArrowDown} 2s infinite`,
-          animationTimingFunction: "ease-in-out",
-        }}
+        // sx={{
+        //   animation: `${shakeArrowDown} 2s infinite`,
+        //   animationTimingFunction: "ease-in-out",
+        // }}
       />
     </Box>
   );
