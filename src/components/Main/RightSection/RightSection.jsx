@@ -103,7 +103,7 @@ export default function RightSection({
 
         <Box className="borderAllRed" fontWeight="500">
           <Text>
-            I'm Ersin -
+            I&apos;m Ersin -
             <Text as={"span"} color="#16F5B5">
               web-developer{" "}
             </Text>
