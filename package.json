@@ -30,7 +30,6 @@
     "react-swipeable": "^7.0.2",
     "reflect-metadata": "^0.2.2",
     "slick-carousel": "^1.8.1",
-    "sqlite3": "^5.1.7",
     "typeorm": "^0.3.20"
   },
   "devDependencies": {
