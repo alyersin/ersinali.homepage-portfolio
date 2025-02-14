@@ -1,7 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Box } from "@chakra-ui/react";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import "../../app/globals.css";
 
 export default function Lamp({ isLightOn }) {

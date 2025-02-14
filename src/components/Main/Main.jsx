@@ -19,14 +19,13 @@ export default function Main() {
 
   return (
     <Box
-      className="borderAllBlue"
       maxWidth="1280px"
       color="white"
       textAlign="center"
       mx="auto"
       position="relative"
     >
-      <Box className="borderAllBlue" display="flex" flexDirection="column">
+      <Box display="flex" flexDirection="column">
         {/* LEFT AND RIGHT SECTIONS */}
         <Box display="flex" flexDirection="row" ref={firstPageRef}>
           <LeftSection isDark={isFirstPageDark} />
@@ -39,7 +38,6 @@ export default function Main() {
 
           {/* LAMP COMPONENT */}
           <Box
-            className="borderAllBlue"
             position="absolute"
             margin="auto"
             top={{
@@ -66,23 +64,22 @@ export default function Main() {
             position="absolute"
             top="17%"
             left={{
-              base: "10%",
-              md: "15%",
-              lg: "10%",
+              base: "0%",
+              lg: "2%",
             }}
             transform="translateY(-50%)"
             width={{
-              base: "150px", // SMALL screens
+              base: "150px", // SMALL
               sm: "200px", // TABLETS
-              md: "300px", // MEDIUM screens
-              lg: "500px", // LARGER screens
-              xl: "600px", // XL screens
+              md: "300px", // MEDIUM
+              lg: "500px", // LARGER
+              xl: "600px", // XL
             }}
             maxWidth={{
-              base: "40%", // SMALL screens
-              md: "30%", // MEDIUM screens
-              lg: "35%", // LARGER screens
-              xl: "40%", // XL screens
+              base: "40%", // SMALL
+              md: "30%", // MEDIUM
+              lg: "35%", // LARGER
+              xl: "40%", // XL
             }}
             transition="all 0.5s ease-in-out"
             zIndex="10"
@@ -91,7 +88,11 @@ export default function Main() {
         </Box>
 
         {/* UNDER SECTION */}
-        <Box className="borderAllBlue" id="projects" ref={secondPageRef}>
+        <Box
+          id="projects"
+          ref={secondPageRef}
+          // borderTop={{ base: "none", md: "3px solid black" }}
+        >
           <UnderSection
             firstPageRef={firstPageRef}
             thirdPageRef={thirdPageRef}
@@ -99,7 +100,7 @@ export default function Main() {
         </Box>
 
         {/* CONTACT SECTION */}
-        <Box className="borderAllRed" id="contact" ref={thirdPageRef}>
+        <Box id="contact" ref={thirdPageRef}>
           <Contact secondPageRef={secondPageRef} />
         </Box>
       </Box>

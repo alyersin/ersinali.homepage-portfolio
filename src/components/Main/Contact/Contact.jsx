@@ -6,8 +6,18 @@ import {
   FormControl,
   Heading,
   Input,
+  HStack,
+  Link,
+  Icon,
   Textarea,
 } from "@chakra-ui/react";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaFacebook,
+  FaDownload,
+  FaEnvelope,
+} from "react-icons/fa";
 import Carousel from "../../Carousel/Carousel";
 import ArrowScrollUp from "@/components/ArrowScroll/ArrowScrollUp";
 import ToggleSwitch from "@/components/ToggleSwitch/ToggleSwitch";
@@ -97,17 +107,19 @@ export default function ContactForm({ secondPageRef }) {
       maxWidth="1280px"
       width="100%"
       mx="auto"
-      bgColor={isDark ? "#1A202C" : "#014f86"}
-      color={isDark ? "white" : "primary.500"}
+      bgImage="/assets/blue_technical_background_1.jpg"
+      bgSize="cover"
+      // bgColor={isDark ? "#11182B" : "#014f86"}
+      // color={isDark ? "white" : "primary.500"}
       display="flex"
       flexDirection="column"
       alignItems="center"
       boxShadow="lg"
       position="relative"
     >
-      <Box className="borderAll" position="absolute" top="10px" right="10px">
+      {/* <Box className="borderAll" position="absolute" top="10px" right="10px">
         <ToggleSwitch onChange={handleToggle} />
-      </Box>
+      </Box> */}
 
       <Box margin="auto" mt="10px">
         <ArrowScrollUp firstPageRef={secondPageRef} />
@@ -213,6 +225,23 @@ export default function ContactForm({ secondPageRef }) {
           )}
         </form>
       </Box>
+
+      <HStack
+        className="borderAllRed"
+        spacing={{ base: 8, md: 6 }}
+        mt={0}
+        mb={14}
+      >
+        <Link href="https://github.com" isExternal>
+          <Icon as={FaGithub} boxSize={{ base: 6, md: 7 }} color="black" />
+        </Link>
+        <Link href="https://linkedin.com" isExternal>
+          <Icon as={FaLinkedin} boxSize={{ base: 6, md: 7 }} color="#0077B5" />
+        </Link>
+        <Link href="https://facebook.com" isExternal>
+          <Icon as={FaFacebook} boxSize={{ base: 6, md: 7 }} color="#1877F2" />
+        </Link>
+      </HStack>
 
       {/* SKILLS */}
       <Box id="skills" mb={12}>

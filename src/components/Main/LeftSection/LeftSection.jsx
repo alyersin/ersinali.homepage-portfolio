@@ -5,7 +5,7 @@ import React from "react";
 export default function LeftSection({ isDark }) {
   return (
     <Box
-      className="borderAll"
+      className="borderAllBlue"
       height="100vh"
       width="35%"
       // bgImage="url('/assets/left-section-4.jpg')"
