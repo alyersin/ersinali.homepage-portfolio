@@ -3,6 +3,7 @@ import {
   Link,
   Text,
   IconButton,
+  HStack,
   Drawer,
   DrawerOverlay,
   DrawerContent,
@@ -26,7 +27,7 @@ export default function MiniHeader({ toggleTheme, isDarkMode }) {
       height={{ base: "24", md: "24" }}
       position="relative"
     >
-      <Box
+      {/* <Box
         className="borderAllRed"
         display="flex"
         flexDirection="row"
@@ -34,8 +35,8 @@ export default function MiniHeader({ toggleTheme, isDarkMode }) {
         alignItems="center"
         height="24"
         gap={5}
-      >
-        {/* <Box>
+      > */}
+      {/* <Box>
           <ToggleSwitch
             onChange={toggleTheme}
             isChecked={isDarkMode}
@@ -43,21 +44,35 @@ export default function MiniHeader({ toggleTheme, isDarkMode }) {
           />
         </Box> */}
 
-        <Box
-          className="borderAll"
-          position="absolute"
-          top="10px"
-          right="10px"
-          zIndex="1001"
-          display="flex"
-        >
-          <ToggleSwitch
-            onChange={toggleTheme}
-            isChecked={isDarkMode}
-            variant="default"
-          />
-        </Box>
+      <Box className="borderAllRed">
+        <HStack>
+          <Link href="/" color="teal.300" display="block" mb={2}>
+            About
+          </Link>
+          <Link href="#projects" color="teal.300" display="block" mb={2}>
+            Projects
+          </Link>
+          <Link href="#contact" color="teal.300" display="block" mb={2}>
+            Contact
+          </Link>
+        </HStack>
       </Box>
+
+      <Box
+        className="borderAll"
+        position="absolute"
+        top="10px"
+        right="10px"
+        zIndex="1001"
+        display="flex"
+      >
+        <ToggleSwitch
+          onChange={toggleTheme}
+          isChecked={isDarkMode}
+          variant="default"
+        />
+      </Box>
+      {/* </Box> */}
 
       <IconButton
         className="borderAllRed"

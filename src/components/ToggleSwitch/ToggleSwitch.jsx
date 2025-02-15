@@ -125,9 +125,9 @@ export default function ToggleSwitch({
       {/* Default Chakra Switch */}
       {variant === "default" && (
         <>
-          <FormLabel htmlFor="theme-toggle" mb="0" fontSize="sm">
+          {/* <FormLabel htmlFor="theme-toggle" mb="0" fontSize="sm">
             {isChecked ? "Dark Mode" : "Theme"}
-          </FormLabel>
+          </FormLabel> */}
           <Switch
             id="theme-toggle"
             isChecked={isChecked}
