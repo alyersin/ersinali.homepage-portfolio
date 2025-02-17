@@ -39,14 +39,7 @@
     "frontHref": "https://career-sketch.vercel.app/",
     "backHref": "https://github.com/alyersin/career-sketch.git"
   },
-  {
-    "id": 6,
-    "title": "E-QUIZZ",
-    "frontImage": "/assets/projects/e-quizz.avif",
-    "backImage": "/assets/projects/backImage-2.avif",
-    "frontHref": "https://interactive-quiz-app-rust.vercel.app/",
-    "backHref": "https://github.com/alyersin/InteractiveQuizApp"
-  },
+
   {
     "id": 7,
     "title": "Coming Soon",
