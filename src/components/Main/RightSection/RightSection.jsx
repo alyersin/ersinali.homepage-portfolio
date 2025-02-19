@@ -78,7 +78,7 @@ export default function RightSection({
         </Text> */}
         <Box className="borderAll">
           <Heading
-            fontSize={{ base: "lg", md: "4.5rem" }}
+            fontSize={{ base: "xl", md: "4.5rem" }}
             sx={{
               background:
                 "linear-gradient(-90deg, rgba(131,58,180,1) 40%, rgba(196,65,176,1) 70%, rgba(252,69,73,1) 100%)",
@@ -89,7 +89,7 @@ export default function RightSection({
             FRONTEND
           </Heading>
           <Heading
-            fontSize={{ base: "lg", md: "4.5rem" }}
+            fontSize={{ base: "xl", md: "4.5rem" }}
             sx={{
               background:
                 "linear-gradient(90deg, rgba(131,58,180,1) 40%, rgba(196,65,176,1) 70%, rgba(252,69,73,1) 100%)",
@@ -101,7 +101,11 @@ export default function RightSection({
           </Heading>
         </Box>
 
-        <Box className="borderAllRed" fontWeight="500">
+        <Box
+          className="borderAllRed"
+          fontWeight="500"
+          fontSize={{ base: "md", md: "xl" }}
+        >
           <Text>
             I&apos;m Ersin -
             <Text as={"span"} color="#16F5B5">
@@ -119,10 +123,10 @@ export default function RightSection({
           // justifyContent="center"
         >
           <Button
-            fontSize="lg"
+            fontSize={{ base: "xs", md: "lg" }}
             fontWeight="bold"
-            px="8"
-            py="6"
+            px={{ base: 4, md: 8 }}
+            py={{ base: 2, md: 6 }}
             borderRadius="full"
             border="2px solid transparent"
             bg="transparent"

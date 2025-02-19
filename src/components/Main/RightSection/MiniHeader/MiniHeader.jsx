@@ -44,7 +44,7 @@ export default function MiniHeader({ toggleTheme, isDarkMode }) {
           />
         </Box> */}
 
-      <Box className="borderAllRed">
+      {/* <Box className="borderAllRed">
         <HStack>
           <Link href="/" color="teal.300" display="block" mb={2}>
             About
@@ -56,7 +56,7 @@ export default function MiniHeader({ toggleTheme, isDarkMode }) {
             Contact
           </Link>
         </HStack>
-      </Box>
+      </Box> */}
 
       <Box
         className="borderAll"
