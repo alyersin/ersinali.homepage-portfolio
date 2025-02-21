@@ -14,7 +14,6 @@ export default function ToggleSwitch({
       width="auto"
       position="relative"
     >
-      {/* Sun-Moon Variant */}
       {variant === "sun-moon" && (
         <Box
           onClick={onChange}
@@ -30,7 +29,6 @@ export default function ToggleSwitch({
           }
           transition="background-image 0.3s ease"
         >
-          {/* Notch (Sun/Moon Toggle Button) */}
           <Box
             position="absolute"
             top="5px"
@@ -46,7 +44,6 @@ export default function ToggleSwitch({
             }
             transition="all 0.3s ease"
           >
-            {/* Craters for Moon */}
             {isChecked && (
               <>
                 <Box
@@ -77,9 +74,7 @@ export default function ToggleSwitch({
             )}
           </Box>
 
-          {/* Animated Shapes */}
           <Box>
-            {/* Small Shape */}
             <Box
               position="absolute"
               top="50%"
@@ -92,7 +87,6 @@ export default function ToggleSwitch({
               transform={isChecked ? "translate(-40px, 0)" : "none"}
               transition="all 0.3s ease"
             />
-            {/* Medium Shape */}
             <Box
               position="absolute"
               top="25%"
@@ -105,7 +99,6 @@ export default function ToggleSwitch({
               transform={isChecked ? "translate(10px, 0)" : "none"}
               transition="all 0.3s ease"
             />
-            {/* Large Shape */}
             <Box
               position="absolute"
               bottom="20px"
@@ -122,12 +115,8 @@ export default function ToggleSwitch({
         </Box>
       )}
 
-      {/* Default Chakra Switch */}
       {variant === "default" && (
         <>
-          {/* <FormLabel htmlFor="theme-toggle" mb="0" fontSize="sm">
-            {isChecked ? "Dark Mode" : "Theme"}
-          </FormLabel> */}
           <Switch
             id="theme-toggle"
             isChecked={isChecked}

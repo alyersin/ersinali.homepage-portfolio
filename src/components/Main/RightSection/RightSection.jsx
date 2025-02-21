@@ -8,13 +8,7 @@ import {
   Flex,
   HStack,
 } from "@chakra-ui/react";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaFacebook,
-  FaDownload,
-  FaEnvelope,
-} from "react-icons/fa";
+
 import MiniHeader from "./MiniHeader/MiniHeader";
 import ArrowScrollDown from "@/components/ArrowScroll/ArrowScrollDown";
 
@@ -31,11 +25,6 @@ export default function RightSection({
       className="borderAll"
       height="100vh"
       width="65%"
-      // bg={
-      //   isDark
-      //     ? "radial-gradient(circle, rgba(38,102,100,1) 0%, #1a202c 100%)"
-      //     : "#2a9d8f"
-      // }
       bg="#1a202c"
       position="relative"
     >
@@ -47,8 +36,6 @@ export default function RightSection({
         className="borderAll"
         display="flex"
         flexDirection="column"
-        // justifyContent="center"
-        // alignItems="center"
         textAlign="left"
         gap={{ base: "4", md: "8" }}
         fontFamily="Mosk"
@@ -59,26 +46,9 @@ export default function RightSection({
         margin="auto"
         padding={{ base: "12px 8px", sm: "16px 12px", md: "4px 0 80px 40px" }}
       >
-        {/* <Heading as="h1" fontSize={{ base: "2xl", md: "7xl" }} mb={0}>
-          Hello,
-        </Heading> */}
-        {/* <Text fontSize={{ base: "lg", md: "2.5rem" }}>
-          I'm{" "}
-          <Text as="span" color={isDark ? "#f5f5f5" : "#404040"}>
-            ERSIN
-          </Text>
-          , a
-        </Text>
-        <Text fontSize={{ base: "lg", md: "2.5rem" }}>
-          Freelance{" "}
-          <Text as="span" color="#16F5B5">
-            Web Developer
-          </Text>
-          .
-        </Text> */}
         <Box className="borderAll">
           <Heading
-            fontSize={{ base: "xl", md: "4.5rem" }}
+            fontSize={{ base: "xl", md: "3.5rem" }}
             sx={{
               background:
                 "linear-gradient(-90deg, rgba(131,58,180,1) 40%, rgba(196,65,176,1) 70%, rgba(252,69,73,1) 100%)",
@@ -89,7 +59,7 @@ export default function RightSection({
             FRONTEND
           </Heading>
           <Heading
-            fontSize={{ base: "xl", md: "4.5rem" }}
+            fontSize={{ base: "xl", md: "3.5rem" }}
             sx={{
               background:
                 "linear-gradient(90deg, rgba(131,58,180,1) 40%, rgba(196,65,176,1) 70%, rgba(252,69,73,1) 100%)",
