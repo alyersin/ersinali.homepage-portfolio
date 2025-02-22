@@ -36,8 +36,8 @@ export default function UnderSection({ firstPageRef, thirdPageRef }) {
       overflow="hidden"
       bg={
         isGradientReversed
-          ? "linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(4,125,197,1) 22%, rgba(6,68,160,1) 43%, rgba(9,9,121,1) 74%, rgba(2,0,36,1) 100%)"
-          : "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 26%, rgba(6,68,160,1) 57%, rgba(4,125,197,1) 78%, rgba(0,212,255,1) 100%)"
+          ? "linear-gradient(90deg, rgba(11,11,52,0.8106046597633136) 40%, rgba(16,30,75,1) 70%, rgba(12,29,55,1) 100%);"
+          : "linear-gradient(90deg, rgba(11,11,52,0.8106046597633136) 40%, rgba(16,30,75,1) 70%, rgba(12,29,55,1) 100%);"
       }
       transition="background 1s ease-in-out"
     >

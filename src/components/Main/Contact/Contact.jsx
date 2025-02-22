@@ -127,8 +127,8 @@ export default function ContactForm({ secondPageRef }) {
 
       {/* CONTACT FORM */}
       <Box
-        className="borderAll"
-        width={{ base: "100%", md: "60%" }}
+        className="borderAllRed"
+        width={{ base: "100%", md: "54%" }}
         margin="auto"
         padding={{ base: "12", md: "6" }}
       >
@@ -233,13 +233,13 @@ export default function ContactForm({ secondPageRef }) {
         mb={14}
       >
         <Link href="https://github.com" isExternal>
-          <Icon as={FaGithub} boxSize={{ base: 6, md: 7 }} color="black" />
+          <Icon as={FaGithub} boxSize={{ base: 6, md: 7 }} color="white" />
         </Link>
         <Link href="https://linkedin.com" isExternal>
-          <Icon as={FaLinkedin} boxSize={{ base: 6, md: 7 }} color="#0077B5" />
+          <Icon as={FaLinkedin} boxSize={{ base: 6, md: 7 }} color="white" />
         </Link>
         <Link href="https://facebook.com" isExternal>
-          <Icon as={FaFacebook} boxSize={{ base: 6, md: 7 }} color="#1877F2" />
+          <Icon as={FaFacebook} boxSize={{ base: 6, md: 7 }} color="white" />
         </Link>
       </HStack>
 

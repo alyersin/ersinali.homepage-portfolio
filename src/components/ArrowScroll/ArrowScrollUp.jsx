@@ -26,6 +26,7 @@ export default function ArrowScrollUp({ firstPageRef }) {
       flexDirection="column"
       alignItems="center"
       onClick={handleScrollUp}
+      opacity={0.5}
     >
       <Icon
         as={ChevronUpIcon}

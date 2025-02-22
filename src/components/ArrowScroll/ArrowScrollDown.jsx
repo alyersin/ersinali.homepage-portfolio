@@ -29,6 +29,7 @@ export default function ArrowScrollDown({ secondPageRef, thirdPageRef }) {
       alignItems="center"
       padding={2}
       onClick={handleScrollDown}
+      opacity={0.5}
     >
       <Icon
         as={ChevronDownIcon}
