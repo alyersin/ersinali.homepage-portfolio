@@ -1,11 +1,11 @@
 [
   {
     "id": 1,
-    "title": "CITY-CHASE",
-    "frontImage": "/assets/projects/city-chase.avif",
+    "title": "E-Commerce app PRODUCTION BUILD",
+    "frontImage": "/assets/projects/coffee-shop.avif",
     "backImage": "/assets/projects/backImage-2.avif",
-    "frontHref": "https://city-chase.vercel.app/",
-    "backHref": "https://github.com/alyersin/City-Chase-NEXTJS-SQLite"
+    "frontHref": "https://cafe-prestigeapp-git-main-alyersins-projects.vercel.app/",
+    "backHref": "https://github.com/alyersin/coffee-shop-app"
   },
   {
     "id": 2,
