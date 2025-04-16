@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "title": "URBAN-EDGE",
+    "title": "URBAN-EDGE - DESIGN ONLY",
     "frontImage": "/assets/projects/urban-edge.avif",
     "backImage": "/assets/projects/backImage-2.avif",
     "frontHref": "https://urban-edge-rho.vercel.app/",
@@ -17,7 +17,7 @@
   },
   { 
     "id": 3,
-    "title": "SAO-MARCO-PIZZA",
+    "title": "SAO-MARCO-PIZZA - DESIGN ONLY",
     "frontImage": "/assets/projects/sao-marco-pizza.avif",
     "backImage": "/assets/projects/backImage-2.avif",
     "frontHref": "https://sao-marco-pizza.vercel.app/",
@@ -25,7 +25,7 @@
   },
   {
     "id": 4,
-    "title": "TECH-BLOG",
+    "title": "TECH-BLOG - DESIGN ONLY",
     "frontImage": "/assets/projects/techblog.avif",
     "backImage": "/assets/projects/backImage-2.avif",
     "frontHref": "https://tech-blog-alpha-fawn.vercel.app/",
@@ -33,7 +33,7 @@
   },
   {
     "id": 5,
-    "title": "CAREER-SKETCH",
+    "title": "CAREER-SKETCH - DESIGN ONLY",
     "frontImage": "/assets/projects/career-sketch.avif",
     "backImage": "/assets/projects/backImage-2.avif",
     "frontHref": "https://career-sketch.vercel.app/",
