@@ -10,6 +10,7 @@ import {
   Link,
   Icon,
   Textarea,
+  Tooltip,
 } from "@chakra-ui/react";
 import {
   FaGithub,
@@ -199,19 +200,22 @@ export default function ContactForm({ secondPageRef }) {
             />
           </FormControl>
 
-          <Button
-            type="submit"
-            isLoading={loading}
-            bgColor="#ffbd39"
-            color="black"
-            _hover={{ bgColor: "#ffdd5e" }}
-            _active={{ bgColor: "#ffbd39" }}
-            padding={6}
-            width="100%"
-            fontSize={{ base: "sm", md: "md" }}
-          >
-            SEND MESSAGE
-          </Button>
+          <Tooltip label="Temporary disabled" hasArrow placement="top">
+            <Button
+              disabled
+              type="submit"
+              isLoading={loading}
+              bgColor="#ffbd39"
+              color="black"
+              _hover={{ bgColor: "#ffdd5e" }}
+              _active={{ bgColor: "#ffbd39" }}
+              padding={6}
+              width="100%"
+              fontSize={{ base: "sm", md: "md" }}
+            >
+              SEND MESSAGE
+            </Button>
+          </Tooltip>
 
           {feedback && (
             <Text

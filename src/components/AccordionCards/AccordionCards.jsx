@@ -176,7 +176,7 @@ export default function AccordionCards() {
       <IconButton
         icon={<ArrowBackIcon />}
         position="absolute"
-        left="2"
+        left="6"
         top="50%"
         zIndex={10}
         onClick={handlePrev}
@@ -270,7 +270,7 @@ export default function AccordionCards() {
       <IconButton
         icon={<ArrowForwardIcon />}
         position="absolute"
-        right="2"
+        right="6"
         top="50%"
         zIndex={10}
         onClick={handleNext}
